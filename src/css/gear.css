@@ -1,0 +1,12 @@
+/* Push content below the fixed navbar and stretch page to full height */
+body {
+  padding-top: 72px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #080b10;
+}
+
+main {
+  flex: 1;
+}

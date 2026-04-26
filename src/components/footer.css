@@ -1,0 +1,234 @@
+/* ============================================================
+   VARIABLES
+   — Defined here so footer.css works on any page even without
+     a shared style.css.
+   ============================================================ */
+:root {
+  --cyan:     #00F0FF;
+  --dark-bg:  #080B10;
+  --border:   #1B2535;
+  --gray-500: #64748B;
+  --gray-600: #475569;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  padding: 60px 0;
+  background: var(--dark-bg);
+  border-top: 1px solid var(--border);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+
+/* --- Top grid --- */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+/* Brand column spans full width on mobile */
+.footer-brand-col {
+  grid-column: span 2;
+}
+
+@media (min-width: 768px) {
+  .footer-brand-col {
+    grid-column: span 1;
+  }
+}
+
+
+/* --- Brand column content --- */
+.footer-logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cyan);
+  margin-bottom: 12px;
+}
+
+.footer-desc {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--gray-500);
+  margin-bottom: 16px;
+}
+
+.footer-contact {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--gray-600);
+}
+
+.footer-contact a {
+  color: var(--gray-500);
+  transition: color 0.3s;
+}
+
+.footer-contact a:hover {
+  color: var(--cyan);
+}
+
+
+/* --- Column headings --- */
+.footer-heading {
+  position: relative;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+}
+
+/* Cyan underline accent */
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 16px;
+  height: 1px;
+  background: var(--cyan);
+}
+
+
+/* --- Link lists --- */
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding : 0;
+} 
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  font-size: 12px;
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--cyan);
+}
+
+
+
+
+/* --- Copyright bar --- */
+.footer-copyright-bar {
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  border-radius: 8px;
+  background: rgba(0, 240, 255, 0.03);
+}
+
+.footer-copyright {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--gray-600);
+}
+
+
+/* --- Bottom row: brand mark + socials --- */
+.footer-bottom {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-brand-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+}
+
+.footer-brand-letter {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cyan);
+}
+
+.footer-brand-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  color: var(--gray-500);
+}
+
+
+/* --- Social icons --- */
+.footer-socials {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-social {
+  color: var(--gray-500);
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.footer-social:hover {
+  color: var(--cyan);
+}
+
+.footer-social svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}
