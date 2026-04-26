@@ -1,0 +1,525 @@
+/* ================================================
+   IT ZONE — AUTH FLOW
+   style.css
+   ================================================ */
+
+/* ------------------------------------------------
+   1. GOOGLE FONTS IMPORT
+   ------------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* ------------------------------------------------
+   2. RESET & BASE
+   ------------------------------------------------ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ------------------------------------------------
+   3. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   ------------------------------------------------ */
+:root {
+  /* Colours */
+  --bg-page:         #000000;
+  --bg-card:         #0d0d0d;
+  --border-soft:     rgba(255, 255, 255, 0.10);
+  --text-primary:    #ffffff;
+  --text-muted:      rgba(255, 255, 255, 0.45);
+  --accent-blue:     #4f8ef7;
+  --accent-blue-2:   #1d4ed8;
+  --accent-blue-dim: rgba(79, 142, 247, 0.15);
+  --accent-green:    #10b981;
+  --error:           #ef4444;
+
+  /* Shape & Motion */
+  --radius-card:  16px;
+  --radius-input: 10px;
+  --transition:   0.22s ease;
+
+  /* Typography */
+  --font: 'Poppins', system-ui, sans-serif;
+}
+
+/* ------------------------------------------------
+   4. BODY & PAGE SHELL
+   ------------------------------------------------ */
+body {
+  font-family: var(--font);
+  background: var(--bg-page);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px 32px; /* top space for the Back button */
+  position: relative;
+}
+
+/* ------------------------------------------------
+   5. BACK BUTTON
+   ------------------------------------------------ */
+.back-btn {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: var(--font);
+  font-weight: 500;
+  cursor: pointer;
+  opacity: 0.80;
+  letter-spacing: 0.3px;
+  transition: opacity var(--transition), transform var(--transition);
+  z-index: 100;
+}
+
+.back-btn:hover {
+  opacity: 1;
+  transform: translateX(-3px);
+}
+
+/* ------------------------------------------------
+   6. CARD — base + view switching
+   ------------------------------------------------ */
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-card);
+  padding: 44px 36px;
+  box-shadow:
+    0 0 0 1px rgba(79, 142, 247, 0.06),
+    0 24px 60px rgba(0, 0, 0, 0.65);
+}
+
+/* Views are hidden by default */
+.view {
+  display: none;
+  animation: fadeIn 0.28s ease;
+}
+
+.view.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* ------------------------------------------------
+   7. TITLES & INSTRUCTION TEXT
+   ------------------------------------------------ */
+.auth-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--accent-blue);
+  letter-spacing: 0.4px;
+  margin-bottom: 28px;
+}
+
+.auth-instruction {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+/* ------------------------------------------------
+   8. FORM LAYOUT
+   ------------------------------------------------ */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group {
+  position: relative;
+}
+
+/* ------------------------------------------------
+   9. INPUTS
+   ------------------------------------------------ */
+.form-group input,
+#forgotForm input {
+  width: 100%;
+  padding: 13px 16px;
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-input);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: var(--font);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-group input::placeholder,
+#forgotForm input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-group input:focus,
+#forgotForm input:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px var(--accent-blue-dim);
+}
+
+.form-group input.invalid {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+/* Password field — extra padding for the eye icon */
+.password-group input {
+  padding-right: 46px;
+}
+
+/* ------------------------------------------------
+   10. PASSWORD TOGGLE BUTTON
+   ------------------------------------------------ */
+.toggle-password {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: color var(--transition);
+}
+
+.toggle-password:hover {
+  color: var(--text-primary);
+}
+
+/* ------------------------------------------------
+   11. FORGOT PASSWORD LINK
+   ------------------------------------------------ */
+.forgot-link {
+  align-self: center;
+  color: var(--accent-green);
+  font-size: 13px;
+  text-decoration: none;
+  margin: 2px 0 6px;
+  transition: color var(--transition);
+}
+
+.forgot-link:hover {
+  color: #34d399;
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------
+   12. PRIMARY BUTTON
+   ------------------------------------------------ */
+.primary-btn {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(100deg, var(--accent-blue-2) 0%, var(--accent-blue) 100%);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font);
+  letter-spacing: 0.3px;
+  border: none;
+  border-radius: var(--radius-input);
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(79, 142, 247, 0.35);
+  transition: transform 0.15s ease, box-shadow var(--transition);
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79, 142, 247, 0.50);
+}
+
+.primary-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(79, 142, 247, 0.30);
+}
+
+/* ------------------------------------------------
+   13. ERROR / SUCCESS MESSAGE
+   ------------------------------------------------ */
+.error-message {
+  font-size: 12px;
+  text-align: center;
+  min-height: 16px;
+  margin-top: 2px;
+  transition: color var(--transition);
+}
+
+/* ------------------------------------------------
+   14. DIVIDER WITH "Or"
+   ------------------------------------------------ */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 22px 0 16px;
+  color: var(--text-muted);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border-soft);
+}
+
+.divider span {
+  padding: 0 14px;
+}
+
+/* ------------------------------------------------
+   15. GOOGLE BUTTON
+   ------------------------------------------------ */
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  transition: transform 0.15s ease, box-shadow var(--transition);
+}
+
+.google-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+.google-btn:active {
+  transform: scale(1.02);
+}
+
+/* ------------------------------------------------
+   16. SWITCH-FORM LINK (Login ↔ Signup)
+   ------------------------------------------------ */
+.switch-form {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.switch-form a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 4px;
+  transition: color var(--transition);
+}
+
+.switch-form a:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------
+   17. FOOTER LINKS
+   ------------------------------------------------ */
+.auth-footer {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-soft);
+}
+
+.auth-footer a {
+  color: var(--text-muted);
+  font-size: 11px;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.auth-footer a:hover {
+  color: var(--text-primary);
+}
+
+/* ------------------------------------------------
+   18. CHECK-EMAIL VIEW
+   ------------------------------------------------ */
+.auth-body {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.check-email-address {
+  color: var(--accent-blue);
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 14px;
+  word-break: break-all;
+}
+
+.check-email-info {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.open-email-link {
+  display: block;
+  text-align: center;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin: 8px 0 32px;
+  transition: color var(--transition);
+}
+
+.open-email-link:hover {
+  color: var(--accent-blue);
+}
+
+/* ------------------------------------------------
+   19. OTP VIEW
+   ------------------------------------------------ */
+.otp-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.otp-email-highlight {
+  text-align: center;
+  color: var(--accent-blue);
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 28px;
+  word-break: break-all;
+}
+
+.otp-group {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.otp-input {
+  width: 64px;
+  height: 64px;
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 24px;
+  font-weight: 600;
+  font-family: var(--font);
+  text-align: center;
+  outline: none;
+  caret-color: var(--accent-blue);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.otp-input:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px var(--accent-blue-dim);
+}
+
+.resend-line {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 18px;
+}
+
+.resend-line a {
+  color: var(--text-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-left: 4px;
+  transition: color var(--transition);
+}
+
+.resend-line a:hover {
+  color: var(--accent-blue);
+}
+
+/* ------------------------------------------------
+   20. ACCESSIBILITY HELPER
+   ------------------------------------------------ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------
+   21. RESPONSIVE (≤ 480 px)
+   ------------------------------------------------ */
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 72px 16px 24px;
+  }
+
+  .auth-card {
+    padding: 34px 22px;
+  }
+
+  .auth-title {
+    font-size: 22px;
+    margin-bottom: 22px;
+  }
+
+  .back-btn {
+    top: 18px;
+    left: 18px;
+  }
+
+  .otp-input {
+    width: 54px;
+    height: 54px;
+    font-size: 20px;
+  }
+
+  .otp-group {
+    gap: 10px;
+  }
+
+  .auth-footer {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .auth-footer a {
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT Zone — Verify Code</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<main class="auth-page">
+
+  <button class="back-btn" type="button" onclick="history.back()">← Back</button>
+
+  <section class="auth-card" aria-labelledby="otp-title">
+
+    <p style="text-align:center; color: var(--text-muted); font-size:14px; margin-bottom:8px;">
+      Please enter the code we sent to
+    </p>
+    <p id="userEmail" style="text-align:center; color: var(--accent-blue); font-size:15px; font-weight:500; margin-bottom:24px;">
+      your.email@example.com
+    </p>
+
+    <div class="otp-group" role="group" aria-label="One-time password">
+      <input class="otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 1" />
+      <input class="otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 2" />
+      <input class="otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 3" />
+      <input class="otp-input" type="text" inputmode="numeric" maxlength="1" aria-label="Digit 4" />
+    </div>
+
+    <button class="primary-btn" id="continueBtn" type="button">Continue</button>
+
+    <p class="resend-line">
+      Didn't get the code ?
+      <a href="#" id="resendLink">Send me a new email</a>
+    </p>
+
+    <p class="error-message" id="errorMsg"></p>
+
+    <footer class="auth-footer" style="margin-top:28px;">
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Support</a>
+      <a href="#">Customer Care</a>
+    </footer>
+
+  </section>
+</main>
+
+<script>
+  const stored = sessionStorage.getItem('resetEmail');
+  if (stored) document.getElementById('userEmail').textContent = stored;
+
+  const inputs = document.querySelectorAll('.otp-input');
+  const continueBtn = document.getElementById('continueBtn');
+  const errorMsg = document.getElementById('errorMsg');
+
+  inputs.forEach((input, i) => {
+    input.addEventListener('input', () => {
+      input.value = input.value.replace(/\D/g, '');
+      if (input.value && i < inputs.length - 1) inputs[i + 1].focus();
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && !input.value && i > 0) inputs[i - 1].focus();
+    });
+  });
+
+  continueBtn.addEventListener('click', () => {
+    const code = [...inputs].map(i => i.value).join('');
+    errorMsg.style.color = '#ef4444';
+
+    if (code.length < 4) {
+      errorMsg.textContent = 'Please enter all 4 digits';
+      return;
+    }
+
+    errorMsg.style.color = '#10b981';
+    errorMsg.textContent = '✓ Code verified! Redirecting...';
+    setTimeout(() => alert('Code accepted: ' + code), 1000);
+  });
+
+  document.getElementById('resendLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    errorMsg.style.color = '#10b981';
+    errorMsg.textContent = 'A new code has been sent to your email.';
+  });
+</script>
+</body>
+</html>

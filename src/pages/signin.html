@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT Zone — Auth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<main class="auth-page">
+
+  <!-- Global Back Button -->
+  <button class="back-btn" type="button" id="backBtn" aria-label="Go back">
+    ← Back
+  </button>
+
+  <!-- ================================================
+       VIEW 1 · LOGIN
+  ================================================ -->
+  <section class="auth-card view active" id="view-login" aria-labelledby="login-title">
+
+    <h1 id="login-title" class="auth-title">Login</h1>
+
+    <form class="auth-form" id="loginForm" novalidate>
+
+      <div class="form-group">
+        <label for="loginEmail" class="visually-hidden">Email or Phone</label>
+        <input
+          type="text"
+          id="loginEmail"
+          placeholder="Email / Phone"
+          autocomplete="email"
+          required
+        />
+      </div>
+
+      <div class="form-group password-group">
+        <label for="loginPassword" class="visually-hidden">Password</label>
+        <input
+          type="password"
+          id="loginPassword"
+          placeholder="Password"
+          autocomplete="current-password"
+          required
+        />
+        <button type="button" class="toggle-password" aria-label="Toggle password visibility" data-target="loginPassword">
+          <svg class="icon-eye" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+          <svg class="icon-eye-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+            <line x1="1" y1="1" x2="23" y2="23"/>
+          </svg>
+        </button>
+      </div>
+
+      <a href="#" class="forgot-link" data-goto="view-forgot">Forgot password ?</a>
+
+      <button type="submit" class="primary-btn">Login</button>
+      <p class="error-message" id="loginError" role="alert"></p>
+
+    </form>
+
+    <div class="divider"><span>Or</span></div>
+
+    <button class="google-btn" type="button" aria-label="Sign in with Google">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24" aria-hidden="true">
+        <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
+        <path fill="#FF3D00" d="m6.306 14.691 6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
+        <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
+        <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>
+      </svg>
+    </button>
+
+    <p class="switch-form">
+      Don't have an account ?
+      <a href="#" data-goto="view-signup">Signup</a>
+    </p>
+
+    <footer class="auth-footer">
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Support</a>
+      <a href="#">Customer Care</a>
+    </footer>
+
+  </section>
+
+  <!-- ================================================
+       VIEW 2 · SIGN UP
+  ================================================ -->
+  <section class="auth-card view" id="view-signup" aria-labelledby="signup-title">
+
+    <h1 id="signup-title" class="auth-title">Sign up</h1>
+
+    <form class="auth-form" id="signupForm" novalidate>
+
+      <div class="form-group">
+        <label for="signupUsername" class="visually-hidden">Username</label>
+        <input
+          type="text"
+          id="signupUsername"
+          placeholder="Username"
+          autocomplete="username"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="signupEmail" class="visually-hidden">Email or Phone</label>
+        <input
+          type="text"
+          id="signupEmail"
+          placeholder="Email / Phone"
+          required
+        />
+      </div>
+
+      <div class="form-group password-group">
+        <label for="signupPassword" class="visually-hidden">Password</label>
+        <input
+          type="password"
+          id="signupPassword"
+          placeholder="Password"
+          autocomplete="new-password"
+          required
+        />
+        <button type="button" class="toggle-password" aria-label="Toggle password visibility" data-target="signupPassword">
+          <svg class="icon-eye" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+          <svg class="icon-eye-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+            <line x1="1" y1="1" x2="23" y2="23"/>
+          </svg>
+        </button>
+      </div>
+
+      <button type="submit" class="primary-btn">Sign up</button>
+      <p class="error-message" id="signupError" role="alert"></p>
+
+    </form>
+
+    <div class="divider"><span>Or</span></div>
+
+    <button class="google-btn" type="button" aria-label="Sign up with Google">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24" aria-hidden="true">
+        <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
+        <path fill="#FF3D00" d="m6.306 14.691 6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
+        <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
+        <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>
+      </svg>
+    </button>
+
+    <p class="switch-form">
+      Already have an account ?
+      <a href="#" data-goto="view-login">Login</a>
+    </p>
+
+    <footer class="auth-footer">
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Support</a>
+      <a href="#">Customer Care</a>
+    </footer>
+
+  </section>
+
+  <!-- ================================================
+       VIEW 3 · FORGOT PASSWORD
+  ================================================ -->
+  <section class="auth-card view" id="view-forgot" aria-labelledby="forgot-title">
+
+    <h1 id="forgot-title" class="auth-title">Forgot Password?</h1>
+
+    <p class="auth-instruction">
+      No worries. We'll send you reset instructions to your email address.<br />
+      Please enter your email.
+    </p>
+
+    <form class="auth-form" id="forgotForm" novalidate>
+
+      <div class="form-group">
+        <label for="forgotEmail" class="visually-hidden">Email address</label>
+        <input
+          type="email"
+          id="forgotEmail"
+          placeholder="example@example.com"
+          autocomplete="email"
+          required
+        />
+      </div>
+
+      <button type="submit" class="primary-btn" style="margin-top: 8px;">Send Reset Link</button>
+      <p class="error-message" id="forgotError" role="alert"></p>
+
+    </form>
+
+    <div class="divider"><span>Or</span></div>
+
+    <button class="google-btn" type="button" aria-label="Sign in with Google">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24" height="24" aria-hidden="true">
+        <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
+        <path fill="#FF3D00" d="m6.306 14.691 6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
+        <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
+        <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>
+      </svg>
+    </button>
+
+    <p class="switch-form">
+      Already have an account ?
+      <a href="#" data-goto="view-login">Login</a>
+    </p>
+
+    <footer class="auth-footer">
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Support</a>
+      <a href="#">Customer Care</a>
+    </footer>
+
+  </section>
+
+  <!-- ================================================
+       VIEW 4 · CHECK YOUR EMAIL
+  ================================================ -->
+  <section class="auth-card view" id="view-check-email" aria-labelledby="check-title">
+
+    <h1 id="check-title" class="auth-title">Check your Email</h1>
+
+    <div class="auth-body">
+      <p id="checkEmailAddress" class="check-email-address">your.email@example.com</p>
+      <p class="check-email-info">
+        We've sent password reset instructions to your email address. Please
+        check your inbox and follow the link to create a new password.
+      </p>
+    </div>
+
+    <a href="#" class="open-email-link" data-goto="view-otp">Please open your email</a>
+
+    <footer class="auth-footer">
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Support</a>
+      <a href="#">Customer Care</a>
+    </footer>
+
+  </section>
+
+  <!-- ================================================
+       VIEW 5 · OTP VERIFICATION
+  ================================================ -->
+  <section class="auth-card view" id="view-otp" aria-labelledby="otp-title">
+
+    <p class="otp-subtitle">Please enter the code we sent to</p>
+    <p id="otpEmailAddress" class="otp-email-highlight">your.email@example.com</p>
+
+    <form class="auth-form" id="otpForm" novalidate>
+
+      <div class="otp-group" role="group" aria-label="One-time password">
+        <input class="otp-input" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="Digit 1" />
+        <input class="otp-input" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="Digit 2" />
+        <input class="otp-input" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="Digit 3" />
+        <input class="otp-input" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="Digit 4" />
+      </div>
+
+      <button type="submit" class="primary-btn">Continue</button>
+      <p class="error-message" id="otpError" role="alert"></p>
+
+    </form>
+
+    <p class="resend-line">
+      Didn't get the code ?
+      <a href="#" id="resendCode">Send me a new email</a>
+    </p>
+
+    <footer class="auth-footer" style="margin-top: 32px;">
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Support</a>
+      <a href="#">Customer Care</a>
+    </footer>
+
+  </section>
+
+</main>
+
+<script>
+// ================================================
+//  SPA ROUTER — show / hide views
+// ================================================
+
+const views   = document.querySelectorAll('.view');
+const backBtn = document.getElementById('backBtn');
+let   history = ['view-login'];   // stack of view IDs
+
+function showView(id) {
+  views.forEach(v => v.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  // Update back-button visibility
+  backBtn.style.visibility = history.length > 1 ? 'visible' : 'visible';
+}
+
+function navigateTo(id) {
+  history.push(id);
+  showView(id);
+}
+
+function navigateBack() {
+  if (history.length > 1) {
+    history.pop();
+    showView(history[history.length - 1]);
+  }
+}
+
+// Back button
+backBtn.addEventListener('click', navigateBack);
+
+// Delegate all [data-goto] link clicks
+document.addEventListener('click', function (e) {
+  const trigger = e.target.closest('[data-goto]');
+  if (!trigger) return;
+  e.preventDefault();
+  navigateTo(trigger.dataset.goto);
+});
+
+// ================================================
+//  FORM: LOGIN
+// ================================================
+document.getElementById('loginForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const email    = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPassword').value.trim();
+  const errEl    = document.getElementById('loginError');
+
+  clearError('loginEmail', errEl);
+  clearError('loginPassword', errEl);
+
+  if (!email) return setError('loginEmail', errEl, 'Please enter your email or phone.');
+  if (!password) return setError('loginPassword', errEl, 'Please enter your password.');
+  if (password.length < 6) return setError('loginPassword', errEl, 'Password must be at least 6 characters.');
+
+  showSuccess(errEl, '✓ Login successful! Redirecting…');
+  setTimeout(() => alert('Welcome back, ' + email + '!'), 1500);
+});
+
+// ================================================
+//  FORM: SIGN UP
+// ================================================
+document.getElementById('signupForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const username = document.getElementById('signupUsername').value.trim();
+  const email    = document.getElementById('signupEmail').value.trim();
+  const password = document.getElementById('signupPassword').value.trim();
+  const errEl    = document.getElementById('signupError');
+
+  clearAllErrors(['signupUsername','signupEmail','signupPassword'], errEl);
+
+  if (!username) return setError('signupUsername', errEl, 'Please enter a username.');
+  if (!email)    return setError('signupEmail',    errEl, 'Please enter your email or phone.');
+  if (!password) return setError('signupPassword', errEl, 'Please enter a password.');
+  if (password.length < 6) return setError('signupPassword', errEl, 'Password must be at least 6 characters.');
+
+  showSuccess(errEl, '✓ Account created! Please log in.');
+  setTimeout(() => navigateTo('view-login'), 1500);
+});
+
+// ================================================
+//  FORM: FORGOT PASSWORD
+// ================================================
+document.getElementById('forgotForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const email = document.getElementById('forgotEmail').value.trim();
+  const errEl = document.getElementById('forgotError');
+
+  clearError('forgotEmail', errEl);
+
+  if (!email)           return setError('forgotEmail', errEl, 'Please enter your email address.');
+  if (!isValidEmail(email)) return setError('forgotEmail', errEl, 'Please enter a valid email address.');
+
+  // Populate the email into the next two views
+  document.getElementById('checkEmailAddress').textContent = email;
+  document.getElementById('otpEmailAddress').textContent   = email;
+
+  navigateTo('view-check-email');
+});
+
+// ================================================
+//  FORM: OTP
+// ================================================
+document.getElementById('otpForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const inputs = document.querySelectorAll('.otp-input');
+  const code   = Array.from(inputs).map(i => i.value).join('');
+  const errEl  = document.getElementById('otpError');
+
+  if (code.length < 4 || !/^\d{4}$/.test(code)) {
+    errEl.textContent = 'Please enter the 4-digit code.';
+    return;
+  }
+
+  errEl.style.color = '#10b981';
+  errEl.textContent = '✓ Code verified! Setting new password…';
+  setTimeout(() => {
+    inputs.forEach(i => (i.value = ''));
+    navigateTo('view-login');
+  }, 1500);
+});
+
+// Resend code link
+document.getElementById('resendCode').addEventListener('click', function (e) {
+  e.preventDefault();
+  this.textContent = 'Sent!';
+  setTimeout(() => (this.textContent = 'Send me a new email'), 3000);
+});
+
+// ================================================
+//  OTP: auto-advance + backspace support
+// ================================================
+document.querySelectorAll('.otp-input').forEach(function (input, idx, all) {
+  input.addEventListener('input', function () {
+    // Keep only the last typed character and ensure it's a digit
+    this.value = this.value.replace(/\D/g, '').slice(-1);
+    if (this.value && idx < all.length - 1) {
+      all[idx + 1].focus();
+    }
+  });
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Backspace' && !this.value && idx > 0) {
+      all[idx - 1].focus();
+    }
+    // Allow paste via Ctrl+V — handled by the paste event below
+  });
+
+  // Handle paste of a 4-digit code into the first box
+  input.addEventListener('paste', function (e) {
+    if (idx !== 0) return;
+    e.preventDefault();
+    const pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g, '');
+    all.forEach((box, i) => { box.value = pasted[i] || ''; });
+    const lastFilled = Math.min(pasted.length, all.length) - 1;
+    if (lastFilled >= 0) all[lastFilled].focus();
+  });
+});
+
+// ================================================
+//  PASSWORD SHOW / HIDE TOGGLE
+// ================================================
+document.querySelectorAll('.toggle-password').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    const input   = document.getElementById(this.dataset.target);
+    const isHidden = input.type === 'password';
+    input.type = isHidden ? 'text' : 'password';
+    this.querySelector('.icon-eye').style.display     = isHidden ? 'none'  : '';
+    this.querySelector('.icon-eye-off').style.display = isHidden ? ''      : 'none';
+    this.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
+  });
+});
+
+// ================================================
+//  HELPERS
+// ================================================
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function setError(inputId, errEl, msg) {
+  document.getElementById(inputId).classList.add('invalid');
+  errEl.style.color   = '#ef4444';
+  errEl.textContent   = msg;
+  document.getElementById(inputId).focus();
+}
+
+function clearError(inputId, errEl) {
+  document.getElementById(inputId).classList.remove('invalid');
+  errEl.textContent = '';
+}
+
+function clearAllErrors(ids, errEl) {
+  ids.forEach(id => document.getElementById(id).classList.remove('invalid'));
+  errEl.textContent = '';
+}
+
+function showSuccess(errEl, msg) {
+  errEl.style.color = '#10b981';
+  errEl.textContent = msg;
+}
+
+// Remove invalid highlight as soon as user types
+document.querySelectorAll('input').forEach(function (input) {
+  input.addEventListener('input', function () {
+    this.classList.remove('invalid');
+  });
+});
+</script>
+</body>
+</html>
