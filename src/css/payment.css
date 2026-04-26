@@ -1,0 +1,14 @@
+body {
+  padding-top: 72px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #080b10;
+}
+
+main {
+  flex: 1;
+}
+p{
+    color: white;
+}
