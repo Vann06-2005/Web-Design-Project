@@ -37,10 +37,10 @@ body{
 
 h1{
     font-size: 36px;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
 }
-
+/* popular laptop list----------------------- */
 .pop-laptop-list {
     margin: 50px auto;
     max-width: 1280px; 
@@ -49,14 +49,14 @@ h1{
 }
 
 .pop-laptop-card{
-    height: 600px;
+    height: 580px;
     width: auto;
     display: flex;
     flex-direction: column;   
 }
 
 /* image */
-.pop-laptop-card .image-panel{
+.pop-image-panel{
     background-color: #D9D9D9;
     border-radius: 4px;
     padding: 40px;
@@ -66,15 +66,16 @@ h1{
 }
 
 
-.image-panel img {
+.pop-image-panel img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
 
     transition: transform 0.3s ease;
+
 }
 
-.image-panel img:hover{
+.pop-image-panel img:hover{
     transform: scale(1.1);
 }
 
@@ -93,44 +94,29 @@ h1{
     
 }
 
-.detail-info ul{
+.pop-detail-info ul{
     margin: 0;
 }
 
 /* bottom section*/
     /* rating */
 
-.bottom-section {
-  margin-top: auto;
-}
-
-
-
-.star {
-    color: red;
-    font-size: x-large;
-}
-
-.fps {
-    color: white;
-    font-size: 15px;
-    margin-left: 6px;
-}
-    /* price shop-botton */
-.price-shop{
-   
+.pop-bottom-section {
+    border-top: 1px solid #525151;
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.price-shop p{
-    margin: 0px;
+.pop-bottom-section p{
+    color: #00F0FF;
+    margin: 10px;
     font-size: 30px;
     font-weight: bold;
 }
 
-.price-shop button{
+.pop-bottom-section button{
     font-size: 15px;
     font-weight: bold;
     background-color: #3b82f6; 
@@ -143,7 +129,92 @@ h1{
     transition: transform 0.3s ease;
 }
 
-.price-shop button:hover{
+.pop-bottom-section button:hover{
     transform: scale(1.1);
 }
 
+/* laptop list --------------------------------- */
+
+.laptop-list {
+    margin: 50px auto;
+    max-width: 1280px; 
+    display: flex;
+    gap: 30px;
+}
+
+.laptop-card{
+    height: 460px;
+    width: auto;
+    display: flex;
+    flex-direction: column;   
+}
+
+.image-panel{
+    background-color: #D9D9D9;
+    border-radius: 4px;
+    padding: 20px;
+    height: 200px;
+    display: flex;
+    justify-content: center;   
+}
+
+.image-panel img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.image-panel img:hover{
+    transform: scale(1.1);
+}
+
+.laptop-card h3 {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+/* detail infor */
+.laptop-card .detail-info {
+    overflow-y: auto;
+    max-height: 150px;
+    scrollbar-width: none;
+    font-size: 13px;
+    font-weight: normal;
+    
+}
+
+.detail-info ul{
+    margin: 0;
+}
+
+.bottom-section {
+    border-top: 1px solid #525151;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom-section p{
+    color: #00F0FF;
+    margin: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.bottom-section button{
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #3b82f6; 
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.bottom-section button:hover{
+    transform: scale(1.1);
+}
