@@ -14,29 +14,36 @@ body {
     color: white;
     font-family: 'Inter', sans-serif;
     margin: 0;
-    padding: 20px;
+    padding-top: 20px;
 }
 
-.container { max-width: 1200px; margin: 0 auto; }
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto;
+}
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding-top: 20px ;
 }
 
 .logo { font-size: 2rem; font-weight: bold; color: var(--accent-blue); }
 
 nav a { color: #ccc; text-decoration: none; margin: 0 15px; }
 
-.cart-header-title { margin: 40px 0; font-size: 2.5rem; }
+.cart-header-title { 
+    margin: 55px 0 15px 0; 
+    font-size: 2.5rem;
+    position: relative; 
+}
 
 /* Main Cart Area */
 .cart-wrapper {
     background: var(--card-white);
     border-radius: 15px;
-    padding: 30px;
+    padding: 20px;
     color: black;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
