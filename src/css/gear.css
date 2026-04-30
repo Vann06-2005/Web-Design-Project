@@ -135,8 +135,7 @@ body { background: var(--dark-bg); color: var(--text); font-family: 'Exo 2', san
 .sidebar {
   width: 240px;
   min-width: 240px;
-  background: linear-gradient(180deg, var(--dark) 0%, var(--dark2) 100%);
-  border-right: 1px solid var(--border);
+  background: linear-gradient(90deg, var(--dark) 0%, var(--dark2) 60%, var(--dark-bg) 100%);
   padding: 30px 20px;
   overflow-y: auto;
 }
