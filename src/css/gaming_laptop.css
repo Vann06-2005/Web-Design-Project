@@ -3,18 +3,10 @@ body {
     padding-top: 72px;
 }
 
-.breadcrumb {
+.breadcrumb-section .breadcrumb {
+    max-width: 1280px;
     margin: 0 auto;
-    max-width: 1280px; 
-    font-size: 32px;
-    font-weight: bold;
-    padding: 50px 0px;
-    display: flex;
-    gap: 10px;
-}
-
-.current{
-    color: rgb(255, 255, 255,55%);
+    padding: 50px 40px;
 }
 
 .description {
@@ -24,10 +16,10 @@ body {
     font-size: 20px;
     color: white
 }
-.description p{  
+.description p{
     margin: 0 auto;
-    padding: 20px 0;
-    max-width: 1280px; 
+    padding: 20px 40px;
+    max-width: 1280px;
 }
 
 h1{
@@ -38,7 +30,8 @@ h1{
 /* popular laptop list----------------------- */
 .pop-laptop-list {
     margin: 50px auto;
-    max-width: 1280px; 
+    max-width: 1280px;
+    padding: 0 40px;
     display: flex;
     gap: 50px;
 }
@@ -132,7 +125,8 @@ h1{
 
 .laptop-list {
     margin: 50px auto;
-    max-width: 1280px; 
+    max-width: 1280px;
+    padding: 0 40px;
     display: flex;
     gap: 30px;
 }
