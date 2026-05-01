@@ -3,6 +3,11 @@
    Load this before every page-specific CSS file.
    ============================================================ */
 
+/* === FONTS & NAVBAR (loaded here so styles are ready before first paint) === */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600&family=Exo+2:wght@400&display=swap');
+@import url('https://fonts.cdnfonts.com/css/porter-sans-block');
+@import url('../components/navbar.css');
+
 /* === VARIABLES === */
 :root {
   --cyan:           #00F0FF;

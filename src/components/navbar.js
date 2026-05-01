@@ -1,25 +1,4 @@
 (function () {
-  // Capture the script's own directory path so CSS resolves correctly
-  // from any page, no matter how deep the folder is.
-  const dir = document.currentScript.src.replace(/\/[^/]+$/, '/');
-
-  // ── Inject Fonts ──────────────────────────────────────────────────────────
-  const googleFonts = document.createElement('link');
-  googleFonts.rel  = 'stylesheet';
-  googleFonts.href = 'https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600&family=Exo+2:wght@400&display=swap';
-  document.head.appendChild(googleFonts);
-
-  const porterFont = document.createElement('link');
-  porterFont.rel  = 'stylesheet';
-  porterFont.href = 'https://fonts.cdnfonts.com/css/porter-sans-block';
-  document.head.appendChild(porterFont);
-
-  // ── Inject CSS ────────────────────────────────────────────────────────────
-  const css  = document.createElement('link');
-  css.rel    = 'stylesheet';
-  css.href   = dir + 'navbar.css';
-  document.head.appendChild(css);
-
   // ── Inject HTML ───────────────────────────────────────────────────────────
   document.body.insertAdjacentHTML('afterbegin', `
     <nav class="navbar">
