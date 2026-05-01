@@ -1,17 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC Components - ITZone</title>
-    <link rel="stylesheet" href="../css/pc-components.css">
-    <link rel="stylesheet" href="../components/navbar.css">
-    <link rel="stylesheet" href="../components/footer.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PC Components – ITZone</title>
+  <link rel="stylesheet" href="../css/pc-components.css" />
 </head>
 <body>
+  <script src="../components/navbar.js"></script>
 
-    <script src="../components/navbar.js"></script>
-    <script src="../components/footer.js"></script>
-    <script src="../js/pc-components.js"></script>
+  <div class="pc-wrapper">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <span class="bc-home">Home</span>
+      <span class="bc-sep">/</span>
+      <span class="bc-current">PC Components</span>
+    </div>
+
+    <div class="pc-layout">
+
+      <!-- Sidebar -->
+      <aside class="pc-sidebar">
+        <h3 class="pc-builder-title">PC Builder</h3>
+        <ul class="pc-menu" id="pc-menu">
+          <li class="pc-menu-item active" data-category="cpu">CPU</li>
+          <li class="pc-menu-item" data-category="gpu">GPU</li>
+          <li class="pc-menu-item" data-category="mb">MB</li>
+          <li class="pc-menu-divider"></li>
+          <li class="pc-menu-item" data-category="case">CASE</li>
+          <li class="pc-menu-item" data-category="cooling">COOLING</li>
+          <li class="pc-menu-item" data-category="memory">MEMORY</li>
+          <li class="pc-menu-item" data-category="storage">STORAGE</li>
+          <li class="pc-menu-item" data-category="fans">FANS</li>
+          <li class="pc-menu-item" data-category="psu">PSU</li>
+        </ul>
+      </aside>
+
+      <!-- Main -->
+      <main class="pc-main">
+        <div class="pc-grid" id="pc-grid">
+          <!-- Populated by pc-components.js -->
+        </div>
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="../components/footer.js"></script>
+  <script src="../js/pc-components.js"></script>
 </body>
 </html>

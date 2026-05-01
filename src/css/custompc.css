@@ -2,7 +2,10 @@
 :root {
   --cyan: #00F0FF;
   --cyan2: #00C8D4;
+  --dark: #06090C;
+  --dark2: #0A1622;
   --dark-bg: #080B10;
+  --border: #1B2535;
   --text: #C8D4E0;
   --green: #22C55E;
   --blue-btn: #3B5BDB;
@@ -29,7 +32,7 @@ body {
   max-width: 1280px;
   margin: 0 auto;
   margin-top: 72px;
-  padding: 28px 40px 48px;
+  padding: 28px 40px 0;
   min-height: calc(100vh - 72px);
   display: flex;
   flex-direction: column;
@@ -43,11 +46,11 @@ body {
   margin-bottom: 20px;
   letter-spacing: 0.04em;
 }
-.bc-home    { color: var(--white); }
-.bc-sep     { color: var(--white); margin: 0 8px; }
+.bc-home { color: var(--white); }
+.bc-sep  { color: var(--white); margin: 0 8px; }
 .bc-current { color: var(--cyan); text-shadow: 0 0 10px rgba(0,240,255,0.4); }
 
-/* === LAYOUT === */
+/* === BUILDER LAYOUT === */
 .pc-layout {
   display: flex;
   gap: 0;
@@ -97,6 +100,7 @@ body {
   background: var(--green);
   color: var(--white);
   font-weight: 700;
+  text-shadow: none;
 }
 
 .pc-menu-divider {
@@ -109,6 +113,8 @@ body {
 .pc-main {
   flex: 1;
   padding: 0 0 0 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* === PRODUCT GRID === */
@@ -150,6 +156,16 @@ body {
 
 .pc-card:hover::before { opacity: 1; }
 
+.pc-card.selected {
+  border-color: var(--green);
+  box-shadow: 0 0 0 1px var(--green), 0 12px 28px rgba(34,197,94,0.25);
+}
+
+.pc-card.selected::before {
+  background: linear-gradient(90deg, var(--green), #16A34A);
+  opacity: 1;
+}
+
 /* Image area */
 .pc-card-img-wrap {
   width: 100%;
@@ -186,16 +202,16 @@ body {
   font-weight: 600;
   color: #333;
   flex: 1;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   line-height: 1.4;
 }
 
-/* Brand + price row */
+/* Bottom row */
 .pc-card-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 14px;
+  gap: 8px;
 }
 
 .pc-card-brand {
@@ -214,29 +230,85 @@ body {
   color: var(--cyan2);
 }
 
-/* Shop button */
-.btn-shop {
-  display: block;
-  width: 100%;
+/* === NEXT BUTTON === */
+.pc-next-row {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 0 10px;
+}
+
+.btn-next {
   background: var(--blue-btn);
   border: none;
   color: var(--white);
   font-family: 'Rajdhani', sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 10px 0;
-  border-radius: 10px;
+  padding: 14px 64px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 4px 12px rgba(59,91,219,0.3);
+  transition: all 0.22s;
+  box-shadow: 0 4px 16px rgba(59,91,219,0.35);
 }
 
-.btn-shop:hover {
+.btn-next:hover {
   background: var(--blue-btn-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(59,91,219,0.5);
+  box-shadow: 0 8px 24px rgba(59,91,219,0.5);
+}
+
+/* === ITEM SELECTED BAR === */
+.selected-bar {
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding: 18px 0 24px;
+  margin-top: 4px;
+}
+
+.selected-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.selected-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.14);
+}
+
+.selected-items {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 28px;
+}
+
+.sel-item {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--gray-400);
+  white-space: nowrap;
+}
+
+.sel-item strong {
+  color: var(--white);
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.sel-empty {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  color: var(--gray-500);
 }
 
 /* === RESPONSIVE === */
@@ -245,7 +317,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .pc-wrapper { padding: 16px 20px 32px; }
+  .pc-wrapper { padding: 16px 20px 0; }
   .pc-layout { flex-direction: column; }
   .pc-sidebar { width: 100%; padding-bottom: 12px; }
   .pc-menu { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -253,4 +325,5 @@ body {
   .pc-builder-title { padding: 0 0 12px; }
   .pc-main { padding: 16px 0 0; }
   .pc-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .btn-next { padding: 12px 40px; font-size: 17px; }
 }

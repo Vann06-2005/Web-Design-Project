@@ -26,15 +26,15 @@
       <div class="nav-container">
 
         <!-- Logo -->
-        <a href="#" class="nav-logo">ITZONE</a>
+        <a href="Main.html" class="nav-logo">ITZONE</a>
 
         <!-- Nav Links -->
         <div class="nav-links">
-          <a href="#" class="nav-link">Gear</a>
-          <a href="#" class="nav-link">Custom PC</a>
-          <a href="#" class="nav-link">PC Components</a>
-          <a href="#" class="nav-link">Prebuilt PCs</a>
-          <a href="#" class="nav-link">Gaming Laptops</a>
+          <a href="gear.html" class="nav-link">Gear</a>
+          <a href="custompc.html" class="nav-link">Custom PC</a>
+          <a href="pc-components.html" class="nav-link">PC Components</a>
+          <a href="prebuilt.html" class="nav-link">Prebuilt PCs</a>
+          <a href="gaming-laptop.html" class="nav-link">Gaming Laptops</a>
         </div>
 
         <!-- Icons -->
@@ -47,14 +47,14 @@
             </svg>
           </button>
 
-          <button class="nav-icon-btn" aria-label="Account">
+          <button class="nav-icon-btn" aria-label="Account" onclick="window.location.href='signin.html'">
             <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
               <circle cx="12" cy="7" r="4"/>
             </svg>
           </button>
 
-          <button class="nav-icon-btn nav-cart-btn" aria-label="Cart">
+          <button class="nav-icon-btn nav-cart-btn" aria-label="Cart" onclick="window.location.href='cart.html'">
             <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
               <line x1="3" y1="6" x2="21" y2="6"/>
