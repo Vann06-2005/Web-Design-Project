@@ -1,4 +1,24 @@
 (function () {
+  // ── Page transitions ──────────────────────────────────────────────────────
+  // This runs as a blocking script before any content is painted, so setting
+  // opacity:0 here prevents a flash of unstyled content on every page load.
+  document.documentElement.style.opacity = '0';
+  document.documentElement.style.transition = 'opacity 0.25s ease';
+
+  window.addEventListener('DOMContentLoaded', () => {
+    document.documentElement.style.opacity = '1';
+  });
+
+  document.addEventListener('click', e => {
+    const link = e.target.closest('a[href]');
+    if (!link) return;
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || link.target === '_blank') return;
+    e.preventDefault();
+    document.documentElement.style.opacity = '0';
+    setTimeout(() => { window.location.href = href; }, 220);
+  });
+
   // ── Inject HTML ───────────────────────────────────────────────────────────
   document.body.insertAdjacentHTML('afterbegin', `
     <nav class="navbar">
