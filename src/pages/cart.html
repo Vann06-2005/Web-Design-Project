@@ -24,20 +24,14 @@
         </div>
         <hr>
         <div class="checkout-container">
-            <button class="checkout-btn">Checkout</button>
+            <button class="checkout-btn" onclick="window.location.href='payment.html'">Checkout</button>
         </div>
     </div>
 </div>
 
+<script src="../js/cart.js"></script>
 <script>
-    let cart = [
-        { id: 1, name: "AMD Ryzen 57000X", price: 230, qty: 1, img: "../assets/images/AMD.png" },
-        { id: 2, name: "Motherboard: MSI PRO B650-P WiFi", price: 200, qty: 1, img: "../assets/images/Motherbord.png" },
-        { id: 3, name: "Memory: Corsair Vengeance 32GB", price: 120, qty: 1, img: "../assets/images/Memory.png" },
-        { id: 4, name: "GPU: AMD Radeon RX 7900 XTX", price: 1000, qty: 1, img: "../assets/images/image.png" },
-        { id: 5, name: "Case: Sapphire PURE X850A WIFI 7", price: 120, qty: 1, img: "../assets/images/Case.png" },
-        { id: 6, name: "RPSU: RM750x SHIFT 80 PLUS Gold", price: 110, qty: 1, img: "../assets/images/RPSU.png" }
-    ];
+    let cart = getCart();
 
     function renderCart() {
         const container = document.getElementById('cart-items');
@@ -75,12 +69,14 @@
         const item = cart.find(p => p.id === id);
         if (item) {
             item.qty = Math.max(1, item.qty + change);
+            saveCart(cart);
             renderCart();
         }
     }
 
     function removeItem(id) {
         cart = cart.filter(p => p.id !== id);
+        saveCart(cart);
         renderCart();
     }
 
