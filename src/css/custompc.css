@@ -1,31 +1,9 @@
-/* === CSS VARIABLES === */
+/* === PAGE-SPECIFIC VARIABLES === */
 :root {
-  --cyan: #00F0FF;
-  --cyan2: #00C8D4;
-  --dark: #06090C;
+  --dark:  #06090C;
   --dark2: #0A1622;
-  --dark-bg: #080B10;
-  --border: #1B2535;
-  --text: #C8D4E0;
   --green: #22C55E;
-  --blue-btn: #3B5BDB;
-  --blue-btn-hover: #4C6EF5;
-  --gray-400: #94A3B8;
-  --gray-500: #64748B;
-  --white: #ffffff;
 }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--dark-bg);
-  color: var(--text);
-  font-family: 'Exo 2', sans-serif;
-  overflow-x: hidden;
-}
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #333; border-radius: 4px; }
-::-webkit-scrollbar-thumb { background: #fff; border-radius: 4px; border: 2px solid #333; }
 
 /* === PAGE WRAPPER === */
 .pc-wrapper {
@@ -39,16 +17,7 @@ body {
 }
 
 /* === BREADCRUMB === */
-.breadcrumb {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  letter-spacing: 0.04em;
-}
-.bc-home { color: var(--white); }
-.bc-sep  { color: var(--white); margin: 0 8px; }
-.bc-current { color: var(--cyan); text-shadow: 0 0 10px rgba(0,240,255,0.4); }
+.breadcrumb { margin-bottom: 20px; }
 
 /* === BUILDER LAYOUT === */
 .pc-layout {

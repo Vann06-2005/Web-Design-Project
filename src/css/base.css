@@ -1,0 +1,61 @@
+/* ============================================================
+   BASE — shared reset, variables, and utility styles.
+   Load this before every page-specific CSS file.
+   ============================================================ */
+
+/* === VARIABLES === */
+:root {
+  --cyan:           #00F0FF;
+  --cyan2:          #00C8D4;
+  --dark-bg:        #080B10;
+  --border:         #1B2535;
+  --text:           #C8D4E0;
+  --white:          #ffffff;
+  --blue-btn:       #3B5BDB;
+  --blue-btn-hover: #4C6EF5;
+  --gray-400:       #94A3B8;
+  --gray-500:       #64748B;
+  --star:           #FBBF24;
+}
+
+/* === RESET === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { overflow-x: hidden; scroll-behavior: smooth; }
+body { background: var(--dark-bg); color: var(--text); font-family: 'Exo 2', sans-serif; overflow-x: hidden; }
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: #fff; border-radius: 4px; border: 2px solid #333; }
+
+/* === BREADCRUMB === */
+.breadcrumb {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.bc-home    { color: var(--white); }
+.bc-sep     { color: var(--white); }
+.bc-current { color: var(--cyan); text-shadow: 0 0 10px rgba(0,240,255,0.4); }
+
+/* === SHOP BUTTON === */
+.btn-shop {
+  background: var(--blue-btn);
+  border: none;
+  color: var(--white);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(59,91,219,0.3);
+}
+.btn-shop:hover {
+  background: var(--blue-btn-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(59,91,219,0.5);
+}
