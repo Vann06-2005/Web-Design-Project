@@ -45,15 +45,17 @@
 
 /* Individual Item Border and Hover */
 .cart-item {
-    border: 2px solid; /* Added Border around item */
-    border-color: rgb(103, 102, 102);
+    border: 2px solid rgb(103, 102, 102);
     border-radius: 12px;
     padding: 20px;
     display: flex;
     align-items: center;
     gap: 20px;
     transition: border-color 0.3s ease;
-    justify-content: space-around;
+}
+
+.cart-item .item-details {
+    flex: 1;
 }
 
 
@@ -272,6 +274,8 @@
 
 .custom-build-parts {
     padding: 8px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .build-part-row {
@@ -280,9 +284,14 @@
     gap: 16px;
     padding: 10px 24px;
     border-bottom: 1px solid var(--build-part-border);
+    border-right: 1px solid var(--build-part-border);
 }
 
-.build-part-row:last-child {
+.build-part-row:nth-child(even) {
+    border-right: none;
+}
+
+.build-part-row:nth-last-child(-n+2) {
     border-bottom: none;
 }
 
@@ -384,9 +393,22 @@
         width: 100%;
     }
 
+    .custom-build-parts {
+        grid-template-columns: 1fr;
+    }
+
     .build-part-row {
         flex-wrap: wrap;
         gap: 8px;
+        border-right: none;
+    }
+
+    .build-part-row:nth-last-child(-n+2) {
+        border-bottom: 1px solid var(--build-part-border);
+    }
+
+    .build-part-row:last-child {
+        border-bottom: none;
     }
 
     .part-category { min-width: unset; }
