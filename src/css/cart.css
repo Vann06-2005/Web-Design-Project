@@ -13,7 +13,7 @@ body {
     background-color: var(--dark-bg);
     color: white;
     font-family: 'Inter', sans-serif;
-    margin: 0;
+    margin: 20px;
     padding-top: 20px;
 }
 
@@ -34,7 +34,7 @@ header {
 nav a { color: #ccc; text-decoration: none; margin: 0 15px; }
 
 .cart-header-title { 
-    margin: 55px 0 15px 0; 
+    margin: 50px 0 15px 0; 
     font-size: 2.5rem;
     position: relative; 
 }
@@ -46,8 +46,8 @@ nav a { color: #ccc; text-decoration: none; margin: 0 15px; }
     padding: 20px;
     color: black;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 20px;
 }
 
 /* Individual Item Border and Hover */
@@ -60,6 +60,7 @@ nav a { color: #ccc; text-decoration: none; margin: 0 15px; }
     align-items: center;
     gap: 20px;
     transition: border-color 0.3s ease;
+    justify-content: space-around;
 }
 
 
@@ -88,7 +89,11 @@ nav a { color: #ccc; text-decoration: none; margin: 0 15px; }
 
 .item-details h3 { margin: 0 0 15px; font-size: 1.1rem; }
 
-.actions { display: flex; align-items: end; gap: 30px; flex-wrap:wrap-reverse; }
+.actions {
+    display: flex; 
+    align-items: end; 
+    gap: 30px; 
+    flex-wrap:wrap; }
 
 /* Quantity Selector */
 .qty-selector {
@@ -137,7 +142,7 @@ nav a { color: #ccc; text-decoration: none; margin: 0 15px; }
 
 .subtotal-row {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 150px;
     font-size: 2rem;
     font-weight: bold;
@@ -165,8 +170,20 @@ nav a { color: #ccc; text-decoration: none; margin: 0 15px; }
 }
 
 /* Mobile Adjustments */
-@media (max-width: 600px) {
-    .cart-wrapper { grid-template-columns: 1fr; }
-    .cart-item { flex-direction: column; text-align: center; }
-    .subtotal-row { font-size: 1.5rem; flex-direction: column; gap: 10px; }
+@media (max-width: 700px) {
+    .cart-item {
+        flex-direction: column; 
+        text-align: center; 
+    }
+    
+    .actions {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center;
+        width: 100%;
+    }
+
+    .remove-btn {
+        order: 10; /* Ensures it is the absolute last element in the flex column */
+        width: 100%; /* Optional: makes button full width on mobile */
+    }
 }
