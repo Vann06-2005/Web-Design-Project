@@ -47,12 +47,12 @@
           autocomplete="current-password"
           required
         />
-        <button type="button" class="toggle-password" aria-label="Toggle password visibility" data-target="loginPassword">
+        <button type="button" class="toggle-password" aria-label="Show password" data-target="loginPassword">
           <svg class="icon-eye" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
             <circle cx="12" cy="12" r="3"/>
           </svg>
-          <svg class="icon-eye-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg class="icon-eye-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
             <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
             <line x1="1" y1="1" x2="23" y2="23"/>
           </svg>
@@ -129,12 +129,12 @@
           autocomplete="new-password"
           required
         />
-        <button type="button" class="toggle-password" aria-label="Toggle password visibility" data-target="signupPassword">
+        <button type="button" class="toggle-password" aria-label="Show password" data-target="signupPassword">
           <svg class="icon-eye" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
             <circle cx="12" cy="12" r="3"/>
           </svg>
-          <svg class="icon-eye-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg class="icon-eye-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
             <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
             <line x1="1" y1="1" x2="23" y2="23"/>
           </svg>
@@ -298,8 +298,6 @@ let   history = ['view-login'];   // stack of view IDs
 function showView(id) {
   views.forEach(v => v.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  // Update back-button visibility
-  backBtn.style.visibility = history.length > 1 ? 'visible' : 'visible';
 }
 
 function navigateTo(id) {
@@ -311,6 +309,8 @@ function navigateBack() {
   if (history.length > 1) {
     history.pop();
     showView(history[history.length - 1]);
+  } else {
+    window.location.href = 'Main.html';
   }
 }
 
@@ -339,7 +339,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
 
   if (!email) return setError('loginEmail', errEl, 'Please enter your email or phone.');
   if (!password) return setError('loginPassword', errEl, 'Please enter your password.');
-  if (password.length < 6) return setError('loginPassword', errEl, 'Password must be at least 6 characters.');
+  if (password.length < 8) return setError('loginPassword', errEl, 'Password must be at least 8 characters.');
 
   showSuccess(errEl, '✓ Login successful! Redirecting…');
   setTimeout(() => alert('Welcome back, ' + email + '!'), 1500);
@@ -360,7 +360,8 @@ document.getElementById('signupForm').addEventListener('submit', function (e) {
   if (!username) return setError('signupUsername', errEl, 'Please enter a username.');
   if (!email)    return setError('signupEmail',    errEl, 'Please enter your email or phone.');
   if (!password) return setError('signupPassword', errEl, 'Please enter a password.');
-  if (password.length < 6) return setError('signupPassword', errEl, 'Password must be at least 6 characters.');
+  if (password.length < 8) return setError('signupPassword', errEl, 'Password must be at least 8 characters.');
+  if (password === email)  return setError('signupPassword', errEl, 'Password must not match your email.');
 
   showSuccess(errEl, '✓ Account created! Please log in.');
   setTimeout(() => navigateTo('view-login'), 1500);
@@ -401,10 +402,9 @@ document.getElementById('otpForm').addEventListener('submit', function (e) {
   }
 
   errEl.style.color = '#10b981';
-  errEl.textContent = '✓ Code verified! Setting new password…';
+  errEl.textContent = '✓ Code verified! Signing you in…';
   setTimeout(() => {
-    inputs.forEach(i => (i.value = ''));
-    navigateTo('view-login');
+    window.location.href = 'Main.html';
   }, 1500);
 });
 
@@ -450,11 +450,13 @@ document.querySelectorAll('.otp-input').forEach(function (input, idx, all) {
 // ================================================
 document.querySelectorAll('.toggle-password').forEach(function (btn) {
   btn.addEventListener('click', function () {
-    const input   = document.getElementById(this.dataset.target);
+    const input    = document.getElementById(this.dataset.target);
     const isHidden = input.type === 'password';
     input.type = isHidden ? 'text' : 'password';
-    this.querySelector('.icon-eye').style.display     = isHidden ? 'none'  : '';
-    this.querySelector('.icon-eye-off').style.display = isHidden ? ''      : 'none';
+    // isHidden=true → now showing: hide open-eye, show crossed-eye
+    // isHidden=false → now hiding: show open-eye, hide crossed-eye
+    this.querySelector('.icon-eye').style.display     = isHidden ? 'none' : '';
+    this.querySelector('.icon-eye-off').style.display = isHidden ? ''     : 'none';
     this.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
   });
 });

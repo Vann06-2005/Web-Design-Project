@@ -41,9 +41,9 @@ loginForm.addEventListener('submit', function (event) {
         return;
     }
 
-    // Check 4: Password must be at least 6 characters
-    if (password.length < 6) {
-        showError(passwordInput, 'Password must be at least 6 characters');
+    // Check 4: Password must be at least 8 characters
+    if (password.length < 8) {
+        showError(passwordInput, 'Password must be at least 8 characters');
         return;
     }
 
@@ -89,8 +89,11 @@ function isValidEmail(email) {
 const togglePassword = document.getElementById('togglePassword');
 if (togglePassword) {
     togglePassword.addEventListener('click', function () {
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
+        const isHidden = passwordInput.getAttribute('type') === 'password';
+        passwordInput.setAttribute('type', isHidden ? 'text' : 'password');
+        this.querySelector('.icon-eye').style.display     = isHidden ? 'none' : '';
+        this.querySelector('.icon-eye-off').style.display = isHidden ? ''     : 'none';
+        this.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
     });
 }
 
