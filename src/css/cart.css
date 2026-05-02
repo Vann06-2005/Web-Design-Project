@@ -11,13 +11,14 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 100px 20px 40px;
+    padding: 50px 20px 40px;
 }
 
 .cart-header-title { 
     margin: 50px 0 15px 0; 
-    font-size: 2.5rem;
+    font-size: 20px;
     position: relative; 
+    color: #00d2ff;
 }
 
 /* Main Cart Area */
@@ -27,8 +28,16 @@
     padding: 20px;
     color: black;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
     gap: 20px;
+}
+
+/* Center last item when it's alone in its row (odd total count) */
+.cart-item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 100%;
+    max-width: 560px;
 }
 
 /* Individual Item Border and Hover */
