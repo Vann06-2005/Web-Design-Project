@@ -16,20 +16,20 @@ function renderCart() {
                 </div>
                 <div class="item-details">
                     <h3>${item.name}</h3>
+                    <div class="qty-selector">
+                        <button onclick="updateQty(${item.id}, -1)">-</button>
+                        <span>${item.qty}</span>
+                        <button onclick="updateQty(${item.id}, 1)">+</button>
+                    </div>
                     <div class="actions">
-                        <div class="qty-selector">
-                            <button onclick="updateQty(${item.id}, -1)">-</button>
-                            <span>${item.qty}</span>
-                            <button onclick="updateQty(${item.id}, 1)">+</button>
-                        </div>
-                        <strong class="item-total-price">SubTotal : $${itemTotal}</strong>
+                        <strong class="item-total-price">SubTotal : $${itemTotal.toFixed(2)}</strong>
                         <button class="remove-btn" onclick="removeItem(${item.id})">Remove</button>
                     </div>
                 </div>
             </div>
         `;
     });
-    document.getElementById('grand-total').innerText = `$${total}`;
+    document.getElementById('grand-total').innerText = `$${total.toFixed(2)}`;
 }
 
 function updateQty(id, change) {
