@@ -8,7 +8,7 @@ const featured = [
     fps: 120,
     hz: 240,
     price: 2005,
-    img: "../assets/images/PrebuiltPC_Images/featured1.png",
+    img: "../assets/images/prebuildpc/featured1.png",
     deal: true,
   },
   {
@@ -20,7 +20,7 @@ const featured = [
     fps: 110,
     hz: 240,
     price: 2005,
-    img: "../assets/images/PrebuiltPC_Images/featured2.png",
+    img: "../assets/images/prebuildpc/featured2.png",
     deal: true,
   },
   {
@@ -32,7 +32,7 @@ const featured = [
     fps: 115,
     hz: 240,
     price: 2005,
-    img: "../assets/images/PrebuiltPC_Images/featured3.png",
+    img: "../assets/images/prebuildpc/featured3.png",
     deal: true,
   },
 ];
@@ -51,7 +51,7 @@ const allProducts = [
     fps: 120,
     hz: 240,
     price: 3245,
-    img: "../assets/images/PrebuiltPC_Images/pc1.png",
+    img: "../assets/images/prebuildpc/pc1.png",
     deal: true,
   },
   {
@@ -67,7 +67,7 @@ const allProducts = [
     fps: 90,
     hz: 165,
     price: 1450,
-    img: "../assets/images/PrebuiltPC_Images/pc2.png",
+    img: "../assets/images/prebuildpc/pc2.png",
     deal: false,
   },
   {
@@ -83,7 +83,7 @@ const allProducts = [
     fps: 100,
     hz: 165,
     price: 2005,
-    img: "../assets/images/PrebuiltPC_Images/pc3.png",
+    img: "../assets/images/prebuildpc/pc3.png",
     deal: false,
   },
   {
@@ -99,7 +99,7 @@ const allProducts = [
     fps: 105,
     hz: 165,
     price: 2005,
-    img: "../assets/images/PrebuiltPC_Images/pc4.png",
+    img: "../assets/images/prebuildpc/pc4.png",
     deal: false,
   },
   {
@@ -115,7 +115,7 @@ const allProducts = [
     fps: 130,
     hz: 240,
     price: 3245,
-    img: "../assets/images/PrebuiltPC_Images/pc5.png",
+    img: "../assets/images/prebuildpc/pc5.png",
     deal: true,
   },
   {
@@ -131,7 +131,7 @@ const allProducts = [
     fps: 85,
     hz: 165,
     price: 1450,
-    img: "../assets/images/PrebuiltPC_Images/pc6.png",
+    img: "../assets/images/prebuildpc/pc6.png",
     deal: false,
   },
   {
@@ -147,7 +147,7 @@ const allProducts = [
     fps: 95,
     hz: 165,
     price: 2005,
-    img: "../assets/images/PrebuiltPC_Images/pc7.png",
+    img: "../assets/images/prebuildpc/pc7.png",
     deal: false,
   },
   {
@@ -163,7 +163,7 @@ const allProducts = [
     fps: 100,
     hz: 165,
     price: 2005,
-    img: "../assets/images/PrebuiltPC_Images/pc8.png",
+    img: "../assets/images/prebuildpc/pc8.png",
     deal: false,
   },
   {
@@ -179,7 +179,7 @@ const allProducts = [
     fps: 135,
     hz: 240,
     price: 3245,
-    img: "../assets/images/PrebuiltPC_Images/pc9.png",
+    img: "../assets/images/prebuildpc/pc9.png",
     deal: true,
   },
   {
@@ -195,7 +195,7 @@ const allProducts = [
     fps: 100,
     hz: 165,
     price: 2005,
-    img: "../assets/images/PrebuiltPC_Images/pc12.png",
+    img: "../assets/images/prebuildpc/pc12.png",
     deal: true,
   },
   {
@@ -211,7 +211,7 @@ const allProducts = [
     fps: 110,
     hz: 165,
     price: 3245,
-    img: "../assets/images/PrebuiltPC_Images/pc10.png",
+    img: "../assets/images/prebuildpc/pc10.png",
     deal: true,
   },
   {
@@ -227,7 +227,7 @@ const allProducts = [
     fps: 88,
     hz: 165,
     price: 1450,
-    img: "../assets/images/PrebuiltPC_Images/pc11.png",
+    img: "../assets/images/prebuildpc/pc11.png",
     deal: false,
   },
   {
@@ -243,7 +243,7 @@ const allProducts = [
     fps: 88,
     hz: 165,
     price: 1450,
-    img: "../assets/images/PrebuiltPC_Images/pc11.png",
+    img: "../assets/images/prebuildpc/pc11.png",
     deal: false,
   },
 ];
