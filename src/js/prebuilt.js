@@ -271,14 +271,6 @@ function renderFeatured() {
       </div>
       <div class="featured-card-name">${p.name}</div>
       <div class="featured-card-specs">${p.specs}</div>
-      <div class="card-rating">
-        <span class="stars">${starsHTML(p.rating)}</span>
-        <span class="review-count">(${p.reviews})</span>
-        <div class="card-badges">
-          <span class="badge">${p.fps} FPS</span>
-          <span class="badge">${p.hz} Hz</span>
-        </div>
-      </div>
       <div class="featured-card-bottom">
         <span class="card-price">${p.price.toLocaleString()}<span>$</span></span>
         <button class="btn-shop" onclick="addToCart('${p.name}', ${p.price}, '${p.img}', this)">Shop</button>
@@ -307,12 +299,6 @@ function renderGrid(products) {
       <div class="product-card-sep"></div>
       <div class="product-card-name">${p.name}</div>
       <div class="product-card-specs">${p.specs}</div>
-      <div class="product-card-rating">
-        <span class="stars">${starsHTML(p.rating)}</span>
-        <span class="review-count">(${p.reviews})</span>
-        <span class="badge">${p.fps} FPS</span>
-        <span class="badge">${p.hz} Hz</span>
-      </div>
       <div class="product-card-bottom">
         <span class="product-price">${p.price.toLocaleString()}$</span>
         <button class="btn-shop" onclick="addToCart('${p.name}', ${p.price}, '${p.img}', this)">Shop</button>
