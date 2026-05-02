@@ -6,6 +6,20 @@ function saveCart(cart) {
   localStorage.setItem('itzone_cart', JSON.stringify(cart));
 }
 
+function getCustomBuilds() {
+  return JSON.parse(localStorage.getItem('itzone_custom_builds') || '[]');
+}
+
+function saveCustomBuilds(builds) {
+  localStorage.setItem('itzone_custom_builds', JSON.stringify(builds));
+}
+
+function addCustomBuild(parts) {
+  const builds = getCustomBuilds();
+  builds.push({ buildId: Date.now(), qty: 1, parts });
+  saveCustomBuilds(builds);
+}
+
 function addToCart(name, price, img, btn) {
   const cart = getCart();
   const existing = cart.find(item => item.name === name);

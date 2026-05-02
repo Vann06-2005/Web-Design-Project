@@ -6,6 +6,9 @@
     --btn-green: #00c851;
     --btn-green-hover: #009e41;
     --border-color: #e2e8f0;
+    --build-bg: #ffffff;
+    --build-border: #e2e8f0;
+    --build-part-border: #f1f5f9;
 }
 
 .container {
@@ -189,6 +192,180 @@
     box-shadow: 0 4px 15px rgba(0, 200, 81, 0.4);
 }
 
+/* Section label */
+.section-label-title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    margin: 24px 0 10px;
+    padding-left: 4px;
+    border-left: 3px solid var(--accent-blue);
+    padding-left: 10px;
+}
+
+.empty-msg {
+    color: #888;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* ── Custom PC Build Card ── */
+#custom-builds-section {
+    margin-bottom: 8px;
+}
+
+.custom-build-card {
+    background: var(--build-bg);
+    border: 1px solid var(--build-border);
+    border-radius: 14px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.custom-build-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: #f8fafc;
+    border-bottom: 1px solid var(--build-border);
+}
+
+.custom-build-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent-blue);
+    letter-spacing: 0.05em;
+}
+
+.build-icon-svg {
+    width: 20px;
+    height: 20px;
+    color: var(--accent-blue);
+    flex-shrink: 0;
+}
+
+.remove-build-btn {
+    background: transparent;
+    border: 1px solid var(--btn-red);
+    color: var(--btn-red);
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.remove-build-btn:hover {
+    background: var(--btn-red);
+    color: white;
+}
+
+.custom-build-parts {
+    padding: 8px 0;
+}
+
+.build-part-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 24px;
+    border-bottom: 1px solid var(--build-part-border);
+}
+
+.build-part-row:last-child {
+    border-bottom: none;
+}
+
+.build-part-row img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    background: #f1f5f9;
+    border-radius: 6px;
+    padding: 4px;
+    flex-shrink: 0;
+}
+
+.part-category {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    min-width: 80px;
+    flex-shrink: 0;
+}
+
+.part-name {
+    flex: 1;
+    font-size: 13px;
+    color: #374151;
+    line-height: 1.4;
+}
+
+.part-price {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+    min-width: 70px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.custom-build-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: #f8fafc;
+    border-top: 1px solid var(--build-border);
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.build-qty-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.build-qty-label {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.build-qty-selector {
+    background: #f8fafc;
+    border: 1px solid var(--build-border) !important;
+}
+
+.build-qty-selector button {
+    color: var(--accent-blue) !important;
+}
+
+.build-total-wrap {
+    font-size: 15px;
+    color: #374151;
+    font-weight: 500;
+}
+
+.build-total-wrap strong {
+    color: var(--accent-blue);
+    font-size: 18px;
+    margin-left: 6px;
+}
+
 /* Mobile Adjustments */
 @media (max-width: 700px) {
     .cart-item {
@@ -203,7 +380,19 @@
     }
 
     .remove-btn {
-        order: 10; /* Ensures it is the absolute last element in the flex column */
-        width: 100%; /* Optional: makes button full width on mobile */
+        order: 10;
+        width: 100%;
+    }
+
+    .build-part-row {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .part-category { min-width: unset; }
+
+    .custom-build-footer {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

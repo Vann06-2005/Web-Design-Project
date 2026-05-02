@@ -270,11 +270,16 @@
           showError(`Please select: ${labels}`);
           return;
         }
-        categories.forEach(cat => {
+        const buildParts = categories.map(cat => {
           const p = products[cat][selected[cat]];
-          const price = parseFloat(p.price.replace('$', ''));
-          addToCart(p.name, price, p.img, null);
+          return {
+            category: categoryLabels[cat],
+            name: p.name,
+            price: parseFloat(p.price.replace('$', '')),
+            img: p.img
+          };
         });
+        addCustomBuild(buildParts);
         window.location.href = 'cart.html';
       }
     });
