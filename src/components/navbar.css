@@ -48,6 +48,18 @@
 }
 
 
+/* --- Home icon link --- */
+.nav-home-btn {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.nav-home-btn .nav-icon {
+  width: 22px;
+  height: 22px;
+}
+
 /* --- Links --- */
 .nav-links {
   display: flex;

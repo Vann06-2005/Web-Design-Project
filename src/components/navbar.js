@@ -5,7 +5,15 @@
       <div class="nav-container">
 
         <!-- Logo -->
-        <a href="Main.html" class="nav-logo">ITZONE</a>
+        <span class="nav-logo">ITZONE</span>
+
+        <!-- Home Icon -->
+        <a href="Main.html" class="nav-link nav-home-btn" aria-label="Home">
+          <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </a>
 
         <!-- Nav Links -->
         <div class="nav-links">
