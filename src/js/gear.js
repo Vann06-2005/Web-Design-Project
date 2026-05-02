@@ -79,14 +79,18 @@ const gearCategories = [
   },
 ];
 
+function viewDetail() {
+  window.location.href = 'product-detail.html';
+}
+
 function renderGear() {
   const main = document.getElementById('gear-main');
-  main.innerHTML = gearCategories.map(category => `
+  main.innerHTML = gearCategories.map((category, catIdx) => `
     <h2 class="title">${category.title}</h2>
     <div class="grid">
-      ${category.products.map(p => `
+      ${category.products.map((p, prodIdx) => `
         <div class="card">
-          <img src="${p.img}" alt="${p.name}" />
+          <img src="${p.img}" alt="${p.name}" onclick="viewDetail(${catIdx},${prodIdx})" style="cursor:pointer" />
           <h4>${p.name}</h4>
           <span>${p.price.toFixed(2)}$</span>
           <button onclick="addToCartFromCard(this)">Buy</button>

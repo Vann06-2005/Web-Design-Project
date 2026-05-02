@@ -186,6 +186,12 @@ const allLaptops = [
   },
 ];
 
+let _renderedLaptops = [];
+
+function viewDetail() {
+  window.location.href = 'product-detail.html';
+}
+
 function starsHTML(rating) {
   return "★".repeat(rating) + "☆".repeat(5 - rating);
 }
@@ -201,11 +207,11 @@ function matchPrice(price, filter) {
 function renderFeatured() {
   document.getElementById("featured-grid").innerHTML = featured
     .map(
-      (p) => `
+      (p, idx) => `
     <div class="featured-card">
       ${p.deal ? '<span class="deal-badge">Hot Pick</span>' : ""}
       <div class="featured-card-img">
-        <img src="${p.img}" alt="${p.name}" onerror="this.parentElement.style.background='#e8e8e8'">
+        <img src="${p.img}" alt="${p.name}" onclick="viewDetail('featured',${idx})" style="cursor:pointer" onerror="this.parentElement.style.background='#e8e8e8'">
       </div>
       <div class="featured-card-name">${p.name}</div>
       <div class="featured-card-specs">${p.specs}</div>
@@ -220,6 +226,7 @@ function renderFeatured() {
 }
 
 function renderGrid(products) {
+  _renderedLaptops = products;
   const grid = document.getElementById("product-grid");
   if (!products.length) {
     grid.innerHTML = '<div class="no-results">No laptops match your filters.</div>';
@@ -227,11 +234,11 @@ function renderGrid(products) {
   }
   grid.innerHTML = products
     .map(
-      (p) => `
+      (p, idx) => `
     <div class="product-card">
       ${p.deal ? '<span class="deal-badge">Hot Pick</span>' : ""}
       <div class="product-card-img">
-        <img src="${p.img}" alt="${p.name}" onerror="this.parentElement.style.background='#e8e8e8'">
+        <img src="${p.img}" alt="${p.name}" onclick="viewDetail('grid',${idx})" style="cursor:pointer" onerror="this.parentElement.style.background='#e8e8e8'">
       </div>
       <div class="product-card-sep"></div>
       <div class="product-card-name">${p.name}</div>

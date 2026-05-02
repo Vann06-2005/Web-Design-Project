@@ -1,41 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IT Zone — Check Your Email</title>
-  <link rel="stylesheet" href="../css/style.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT Zone — Check Your Email</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <main class="auth-page">
+      <button class="back-btn" type="button" onclick="history.back()">
+        ← Back
+      </button>
 
-<main class="auth-page">
+      <section class="auth-card" aria-labelledby="check-email-title">
+        <h1 id="check-email-title" class="auth-title">Check your Email</h1>
 
-  <button class="back-btn" type="button" onclick="history.back()">← Back</button>
+        <div class="auth-body">
+          <strong id="userEmail">your.email@example.com</strong>
+          We've sent password reset instructions to your email address. Please
+          check your inbox and follow the link to create a new password.
+        </div>
 
-  <section class="auth-card" aria-labelledby="check-email-title">
+        <a href="otp-verify.html" class="open-email-link"
+          >Please open your email</a
+        >
 
-    <h1 id="check-email-title" class="auth-title">Check your Email</h1>
+        <footer class="auth-footer">
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">Support</a>
+          <a href="#">Customer Care</a>
+        </footer>
+      </section>
+    </main>
 
-    <div class="auth-body">
-      <strong id="userEmail">your.email@example.com</strong>
-      We've sent password reset instructions to your email address. Please
-      check your inbox and follow the link to create a new password.
-    </div>
-
-    <a href="otp-verify.html" class="open-email-link">Please open your email</a>
-
-    <footer class="auth-footer">
-      <a href="#">Terms &amp; Conditions</a>
-      <a href="#">Support</a>
-      <a href="#">Customer Care</a>
-    </footer>
-
-  </section>
-</main>
-
-<script>
-  const stored = sessionStorage.getItem('resetEmail');
-  if (stored) document.getElementById('userEmail').textContent = stored;
-</script>
-</body>
+      <script>
+      const stored = sessionStorage.getItem("resetEmail");
+      if (stored) document.getElementById("userEmail").textContent = stored;
+    </script>
+  </body>
 </html>
+

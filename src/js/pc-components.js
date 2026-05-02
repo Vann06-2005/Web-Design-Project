@@ -464,16 +464,22 @@ const products = {
 };
 
 let currentIndex = 0;
+let _currentCategory = '';
+
+function viewDetail() {
+  window.location.href = 'product-detail.html';
+}
 
 function renderGrid(category) {
+  _currentCategory = category;
   const grid = document.getElementById("pc-grid");
   const items = products[category] || [];
   grid.innerHTML = items
     .map(
-      (p) => `
+      (p, idx) => `
     <div class="pc-card">
       <div class="pc-card-img-wrap">
-        <img src="${p.img}" alt="${p.name}" onerror="this.parentElement.style.background='#e8e8e8'">
+        <img src="${p.img}" alt="${p.name}" onclick="viewDetail(${idx})" style="cursor:pointer" onerror="this.parentElement.style.background='#e8e8e8'">
       </div>
       <div class="pc-card-separator"></div>
       <p class="pc-card-name">${p.name}</p>
