@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/payment.css">
+    <link rel="stylesheet" href="../components/navbar.css">
     <title>ITZONE Checkout - Payment Selection</title>
     <style>
         
@@ -11,10 +13,8 @@
 </head>
 <body>
     <div class="container">
-        <header id="navbar-container">
-            <script src="../components/navbar.js"></script>
-        </header>
-
+        <script src="../components/navbar.js"></script>
+        
         <form id="payment-form" onsubmit="return handlePayment(event)">
             <div class="checkout-title">
                 <h2>Checkout</h2>

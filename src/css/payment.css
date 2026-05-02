@@ -30,7 +30,7 @@ body {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-top: 20px;
+            margin-top: 50px;
         }
         .order-summary {
             background-color: #0f172a;
