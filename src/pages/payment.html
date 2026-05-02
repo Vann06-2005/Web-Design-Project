@@ -3,11 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/payment.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../components/navbar.css">
+    <title>ITZONE Checkout - Payment Selection</title>
+    <style>
+        
+    </style>
 </head>
 <body>
-    <script src="../components/navbar.js"></script>
-    <p>Hello world</p>
+    <div class="container">
+        <script src="../components/navbar.js"></script>
+        
+        <form id="payment-form" onsubmit="return handlePayment(event)">
+            <div class="checkout-title">
+                <h2>Checkout</h2>
+                <a href="../pages/cart.html" style="color: #3b82f6; text-decoration: none; font-size: 14px;">View Cart</a>
+            </div>
+
+            <div class="order-summary">
+                <div class="summary-header">
+                    <span>Order Summary</span>
+                    <div>
+                        <span style="margin-right: 40px;">QTY</span>
+                        <span>Total</span>
+                    </div>
+                </div>
+                <div class="item"><span>AMD Ryzen 5 7600X</span> <span>1x $229</span></div>
+                <div class="item"><span>MSI PRO B650-P WIFI</span> <span>1x $189</span></div>
+                <div class="item"><span>MP700 PRO XT 2TB</span> <span>1x $489.99</span></div>
+                <div class="item"><span>AMD Radeon RX 7900 XTX</span> <span>1x $950</span></div>
+                <div class="total">
+                    <span>Total</span>
+                    <span>$2172.99</span>
+                </div>
+            </div>
+
+            <div class="section-title">Shipping Details</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" placeholder="House No, Building, Street, Area" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="city">Town/City</label>
+                    <input type="text" id="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="012345678" required>
+                </div>
+            </div>
+
+            <div class="section-title" style="text-align: center; border: none;">Payment Method</div>
+            <div class="payment-methods">
+                <button type="button" id="select-credit" class="method-btn btn-credit" onclick="showPayment('credit')">Credit Card</button>
+                <button type="button" id="select-qr" class="method-btn btn-qr inactive" onclick="showPayment('qr')">KHQR Code</button>
+            </div>
+
+            <div id="credit-section">
+                <div class="form-group">
+                    <label for="card-num">Card Number</label>
+                    <div class="card-input-container">
+                        <input type="text" id="card-num" placeholder="0000 0000 0000 0000" maxlength="19">
+                        <div class="card-icons">
+                            <span style="background: #1a1aff; color: white; padding: 2px 4px; font-size: 10px; border-radius: 2px; font-weight: bold;">VISA</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry">Expiry Date</label>
+                        <input type="text" id="expiry" placeholder="MM/YY" maxlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="password" id="cvv" placeholder="***" maxlength="3">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="card-name">Name on Card</label>
+                    <input type="text" id="card-name">
+                </div>
+            </div>
+
+            <div id="qr-section" style="display: none;">
+                <div class="qr-container">
+                    <div class="qr-box">
+                        <div class="qr-header">KHQR</div>
+                        <div style="font-weight: bold; margin-bottom: 10px; font-size: 12px;">SOVANNARA PHOUNG</div>
+                        <div style="border: 1px solid #eee; padding: 5px; display: inline-block;">
+                            <img src="../assets/images/qrcode.png" width="140" height="140" alt="Payment QR">
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center; font-size: 13px; color: #94a3b8;">Scan to pay $2172.99 instantly</p>
+            </div>
+
+            <button type="submit" class="pay-btn">Confirm Payment</button>
+        </form>
+    </div>
+
+    <script>
+        function showPayment(method) {
+            const creditSection = document.getElementById('credit-section');
+            const qrSection = document.getElementById('qr-section');
+            const creditBtn = document.getElementById('select-credit');
+            const qrBtn = document.getElementById('select-qr');
+
+            if (method === 'credit') {
+                creditSection.style.display = 'block';
+                qrSection.style.display = 'none';
+                creditBtn.classList.remove('inactive');
+                qrBtn.classList.add('inactive');
+            } else {
+                creditSection.style.display = 'none';
+                qrSection.style.display = 'block';
+                creditBtn.classList.add('inactive');
+                qrBtn.classList.remove('inactive');
+            }
+        }
+
+        // Simple formatting for Card Number (Space every 4 digits)
+        document.getElementById('card-num').addEventListener('input', function (e) {
+            e.target.value = e.target.value.replace(/[^\d]/g, '').replace(/(.{4})/g, '$1 ').trim();
+        });
+
+        // Simple formatting for Expiry (MM/YY)
+        document.getElementById('expiry').addEventListener('input', function (e) {
+            e.target.value = e.target.value.replace(/[^\d]/g, '').replace(/(.{2})/, '$1/').trim();
+        });
+
+        function handlePayment(event) {
+            event.preventDefault();
+            alert("Processing Payment... Thank you for your order!");
+            // Here you would typically send data to your server
+            return false;
+        }
+    </script>
 </body>
 </html>
