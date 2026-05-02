@@ -10,7 +10,7 @@ const featured = [
     fps: 90,
     hz: 144,
     price: 1449,
-    img: "../assets/images/ASUS_TUF_GamingA16_FA608UM-NS73.png",
+    img: "../assets/images/gaming-laptop-images/laptop-featured1.png",
     deal: true,
   },
   {
@@ -24,7 +24,7 @@ const featured = [
     fps: 110,
     hz: 165,
     price: 1799,
-    img: "../assets/images/ASUS_TUF_GamingA16_FA608UM-NS73.png",
+    img: "../assets/images/gaming-laptop-images/laptop-featured2.png",
     deal: false,
   },
   {
@@ -38,7 +38,7 @@ const featured = [
     fps: 130,
     hz: 240,
     price: 2999,
-    img: "../assets/images/ASUS_TUF_GamingA16_FA608UM-NS73.png",
+    img: "../assets/images/gaming-laptop-images/laptop-featured3.png",
     deal: false,
   },
 ];
@@ -55,7 +55,7 @@ const allLaptops = [
     fps: 80,
     hz: 144,
     price: 1099,
-    img: "../assets/images/ASUS_TUF_GamingA16_FA608UM-NS73.png",
+    img: "../assets/images/gaming-laptop-images/laptop1.png",
     deal: false,
   },
   {
@@ -69,7 +69,7 @@ const allLaptops = [
     fps: 90,
     hz: 165,
     price: 1299,
-    img: "../assets/images/ASUS_TUF_GamingA16_FA608UM-NS73.png",
+    img: "../assets/images/gaming-laptop-images/laptop2.png",
     deal: false,
   },
   {
@@ -83,7 +83,7 @@ const allLaptops = [
     fps: 115,
     hz: 240,
     price: 1999,
-    img: "../assets/images/ASUS_TUF_GamingA16_FA608UM-NS73.png",
+    img: "../assets/images/gaming-laptop-images/laptop3.png",
     deal: false,
   },
   {
@@ -97,7 +97,7 @@ const allLaptops = [
     fps: 105,
     hz: 240,
     price: 2499,
-    img: "../assets/images/ASUS_TUF_GamingA16_FA608UM-NS73.png",
+    img: "../assets/images/gaming-laptop-images/laptop4.png",
     deal: true,
   },
   {
@@ -111,7 +111,7 @@ const allLaptops = [
     fps: 88,
     hz: 144,
     price: 1199,
-    img: "../assets/images/ASUS_TUF_GamingA16_FA608UM-NS73.png",
+    img: "../assets/images/gaming-laptop-images/laptop5.png",
     deal: false,
   },
   {
@@ -125,7 +125,7 @@ const allLaptops = [
     fps: 75,
     hz: 165,
     price: 1149,
-    img: "../assets/images/ASUS_TUF_GamingA16_FA608UM-NS73.png",
+    img: "../assets/images/gaming-laptop-images/laptop6.png",
     deal: false,
   },
   {
@@ -139,7 +139,7 @@ const allLaptops = [
     fps: 95,
     hz: 240,
     price: 1599,
-    img: "../assets/images/ASUS_TUF_GamingA16_FA608UM-NS73.png",
+    img: "../assets/images/gaming-laptop-images/laptop7.png",
     deal: false,
   },
   {
@@ -153,7 +153,7 @@ const allLaptops = [
     fps: 90,
     hz: 120,
     price: 2199,
-    img: "../assets/images/ASUS_TUF_GamingA16_FA608UM-NS73.png",
+    img: "../assets/images/gaming-laptop-images/laptop8.png",
     deal: false,
   },
   {
@@ -167,7 +167,7 @@ const allLaptops = [
     fps: 120,
     hz: 165,
     price: 2799,
-    img: "../assets/images/ASUS_TUF_GamingA16_FA608UM-NS73.png",
+    img: "../assets/images/gaming-laptop-images/laptop9.png",
     deal: true,
   },
   {
@@ -181,7 +181,7 @@ const allLaptops = [
     fps: 135,
     hz: 240,
     price: 3499,
-    img: "../assets/images/ASUS_TUF_GamingA16_FA608UM-NS73.png",
+    img: "../assets/images/gaming-laptop-images/laptop10.png",
     deal: true,
   },
 ];
@@ -209,14 +209,6 @@ function renderFeatured() {
       </div>
       <div class="featured-card-name">${p.name}</div>
       <div class="featured-card-specs">${p.specs}</div>
-      <div class="card-rating">
-        <span class="stars">${starsHTML(p.rating)}</span>
-        <span class="review-count">(${p.reviews})</span>
-        <div class="card-badges">
-          <span class="badge">${p.fps} FPS</span>
-          <span class="badge">${p.hz} Hz</span>
-        </div>
-      </div>
       <div class="featured-card-bottom">
         <span class="card-price">${p.price.toLocaleString()}<span>$</span></span>
         <button class="btn-shop" onclick="addToCart('${p.name}', ${p.price}, '${p.img}', this)">Shop</button>
@@ -244,12 +236,6 @@ function renderGrid(products) {
       <div class="product-card-sep"></div>
       <div class="product-card-name">${p.name}</div>
       <div class="product-card-specs">${p.specs}</div>
-      <div class="product-card-rating">
-        <span class="stars">${starsHTML(p.rating)}</span>
-        <span class="review-count">(${p.reviews})</span>
-        <span class="badge">${p.fps} FPS</span>
-        <span class="badge">${p.hz} Hz</span>
-      </div>
       <div class="product-card-bottom">
         <span class="product-price">${p.price.toLocaleString()}$</span>
         <button class="btn-shop" onclick="addToCart('${p.name}', ${p.price}, '${p.img}', this)">Shop</button>
