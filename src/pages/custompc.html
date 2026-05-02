@@ -47,6 +47,7 @@
 
         <div class="pc-next-row">
           <button class="btn-next" id="btn-next">Next</button>
+          <p class="pc-error" id="pc-error"></p>
         </div>
       </main>
 
@@ -63,6 +64,7 @@
   </div>
 
   <script src="../components/footer.js"></script>
+  <script src="../js/cart.js"></script>
 
   <script>
     const categories = ['cpu', 'gpu', 'mb', 'case', 'cooling', 'memory', 'storage', 'fans', 'psu'];
@@ -221,6 +223,24 @@
         li.classList.toggle('active', li.dataset.category === cat);
       });
       renderGrid(cat);
+      updateNextButton();
+      clearError();
+    }
+
+    // ── Update Next button label ──
+    function updateNextButton() {
+      const btn = document.getElementById('btn-next');
+      btn.textContent = currentIndex === categories.length - 1
+        ? 'Add all parts to cart'
+        : 'Next';
+    }
+
+    // ── Error helpers ──
+    function showError(msg) {
+      document.getElementById('pc-error').textContent = msg;
+    }
+    function clearError() {
+      document.getElementById('pc-error').textContent = '';
     }
 
     // ── Sidebar clicks ──
@@ -231,11 +251,31 @@
       });
     });
 
-    // ── Next button ──
+    // ── Next / Add all parts to cart button ──
     document.getElementById('btn-next').addEventListener('click', () => {
+      const currentCat = categories[currentIndex];
+
       if (currentIndex < categories.length - 1) {
+        if (selected[currentCat] === undefined) {
+          showError(`Please select a ${categoryLabels[currentCat]} before proceeding.`);
+          return;
+        }
+        clearError();
         setActiveCategory(currentIndex + 1);
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const unselected = categories.filter(cat => selected[cat] === undefined);
+        if (unselected.length > 0) {
+          const labels = unselected.map(cat => categoryLabels[cat]).join(', ');
+          showError(`Please select: ${labels}`);
+          return;
+        }
+        categories.forEach(cat => {
+          const p = products[cat][selected[cat]];
+          const price = parseFloat(p.price.replace('$', ''));
+          addToCart(p.name, price, p.img, null);
+        });
+        window.location.href = 'cart.html';
       }
     });
 
