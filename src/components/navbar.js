@@ -17,11 +17,11 @@
 
         <!-- Nav Links -->
         <div class="nav-links">
-          <a href="gear.html" class="nav-link">Gear</a>
-          <a href="custompc.html" class="nav-link">Custom PC</a>
-          <a href="pc-components.html" class="nav-link">PC Components</a>
-          <a href="prebuilt.html" class="nav-link">Prebuilt PCs</a>
-          <a href="gaming-laptop.html" class="nav-link">Gaming Laptops</a>
+        <a href="custompc.html" class="nav-link">Custom PC</a>
+        <a href="pc-components.html" class="nav-link">PC Components</a>
+        <a href="prebuilt.html" class="nav-link">Prebuilt PCs</a>
+        <a href="gaming-laptop.html" class="nav-link">Gaming Laptops</a>
+        <a href="gear.html" class="nav-link">Gear</a>
         </div>
 
         <!-- Icons -->
@@ -54,4 +54,11 @@
       </div>
     </nav>
   `);
+  // Highlight active nav link based on current page
+  const currentPage = window.location.pathname.split('/').pop();
+  document.querySelectorAll('.nav-link').forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    }
+  });
 })();
