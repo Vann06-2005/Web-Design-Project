@@ -21,6 +21,7 @@
                 <a href="../pages/cart.html" style="color: #3b82f6; text-decoration: none; font-size: 14px;">View Cart</a>
             </div>
 
+            <!-- Inside your <form id="payment-form"> -->
             <div class="order-summary">
                 <div class="summary-header">
                     <span>Order Summary</span>
@@ -29,13 +30,13 @@
                         <span>Total</span>
                     </div>
                 </div>
-                <div class="item"><span>AMD Ryzen 5 7600X</span> <span>1x $229</span></div>
-                <div class="item"><span>MSI PRO B650-P WIFI</span> <span>1x $189</span></div>
-                <div class="item"><span>MP700 PRO XT 2TB</span> <span>1x $489.99</span></div>
-                <div class="item"><span>AMD Radeon RX 7900 XTX</span> <span>1x $950</span></div>
+                
+                <!-- This div will be populated by JavaScript -->
+                <div id="dynamic-order-items"></div>
+
                 <div class="total">
                     <span>Total</span>
-                    <span>$2172.99</span>
+                    <span id="checkout-grand-total">$0.00</span>
                 </div>
             </div>
 
@@ -151,5 +152,7 @@
             return false;
         }
     </script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/payment-logic.js"></script>    
 </body>
 </html>
