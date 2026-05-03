@@ -152,122 +152,75 @@
 
 
 /* ============================================================
-   HAMBURGER TOGGLE — hidden on desktop
+   NAV STRIP — horizontal scrollable nav for tablet / mobile
    ============================================================ */
-.nav-toggle {
+.nav-strip {
   display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  background: none;
-  border: none;
-  -webkit-appearance: none;
-  appearance: none;
-  outline: none;
-  cursor: pointer;
-  padding: 8px;
-  margin-left: 4px;
-  z-index: 60;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  white-space: nowrap;
+  background: var(--dark-bg);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.12);
+  padding: 0 8px;
+  text-align: center;
 }
 
-.nav-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--cyan);
-  border-radius: 1px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+.nav-strip::-webkit-scrollbar { display: none; }
+
+.nav-strip-link {
+  display: inline-block;
+  padding: 12px 16px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: color 0.3s, border-color 0.3s;
+  border-bottom: 2px solid transparent;
 }
 
-.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-toggle.open span:nth-child(2) { opacity: 0; }
-.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-strip-link:hover,
+.nav-strip-link.active {
+  color: var(--cyan);
+  border-bottom-color: var(--cyan);
+}
 
 
 /* ============================================================
-   OVERLAY — backdrop behind drawer
+   HAMBURGER — not used, hidden everywhere
    ============================================================ */
-.nav-overlay {
-  position: fixed;
-  inset: 72px 0 0 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 49;
-}
-
-.nav-overlay.open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-body.nav-locked { overflow: hidden; }
+.nav-toggle  { display: none; }
+.nav-overlay { display: none; }
 
 
 /* ============================================================
-   RESPONSIVE — tablet (≤1023px) collapses nav into drawer
+   RESPONSIVE — tablet / mobile (≤1023px) shows strip
    ============================================================ */
 @media (max-width: 1023px) {
-  .nav-container { padding: 0 24px; }
-
-  .nav-toggle { display: flex; }
-
-  .nav-links {
-    position: fixed;
-    top: 72px;
-    right: 0;
-    height: calc(100vh - 72px);
-    width: min(320px, 85vw);
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 20px 16px;
-    background: var(--dark-bg);
-    border-left: 1px solid rgba(0, 240, 255, 0.15);
-    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.5);
-    transform: translateX(100%);
-    visibility: hidden;
-    /* visibility delays: immediate on open, waits for slide-out before hiding */
-    transition: transform 0.3s ease, visibility 0s ease 0.3s;
-    z-index: 50;
-    overflow-y: auto;
-  }
-
-  .nav-links.open {
-    transform: translateX(0);
-    visibility: visible;
-    transition: transform 0.3s ease, visibility 0s ease 0s;
-  }
-
-  /* Drawer links only — scoped to avoid affecting .nav-home-btn */
-  .nav-links .nav-link {
-    width: 100%;
-    padding: 16px 14px;
-    font-size: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 0;
-  }
-
-  .nav-links .nav-link::after { display: none; }
-
-  .nav-links .nav-link:hover,
-  .nav-links .nav-link.active {
-    background: rgba(0, 240, 255, 0.06);
-    color: var(--cyan);
-  }
+  .navbar         { height: auto; }
+  .nav-container  { padding: 0 24px; height: 72px; }
+  .nav-links      { display: none; }
+  .nav-strip      { display: block; }
+  body            { padding-top: 114px !important; }
 }
 
 
 /* ============================================================
-   RESPONSIVE — mobile (≤640px) tighter spacing
+   RESPONSIVE — small mobile (≤640px) tighter spacing
    ============================================================ */
 @media (max-width: 640px) {
-  .nav-container { padding: 0 16px; }
-  .nav-logo { font-size: 22px; letter-spacing: 0.08em; }
-  .nav-icons { gap: 6px; }
-  .nav-icon-btn { padding: 6px; }
-  .nav-icon { width: 22px; height: 22px; }
+  .nav-container  { padding: 0 16px; }
+  .nav-logo       { font-size: 22px; letter-spacing: 0.08em; }
+  .nav-icons      { gap: 6px; }
+  .nav-icon-btn   { padding: 6px; }
+  .nav-icon       { width: 22px; height: 22px; }
+  .nav-strip-link { padding: 10px 10px; font-size: 11px; letter-spacing: 0.04em; }
+}
+
+@media (max-width: 480px) {
+  .nav-strip-link { padding: 8px 7px; font-size: 10px; letter-spacing: 0.02em; }
 }

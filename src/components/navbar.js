@@ -15,13 +15,13 @@
           </svg>
         </a>
 
-        <!-- Nav Links -->
+        <!-- Nav Links (desktop only, hidden on tablet/mobile) -->
         <div class="nav-links">
-        <a href="custompc.html" class="nav-link">Custom PC</a>
-        <a href="pc-components.html" class="nav-link">PC Components</a>
-        <a href="prebuilt.html" class="nav-link">Prebuilt PCs</a>
-        <a href="gaming-laptop.html" class="nav-link">Gaming Laptops</a>
-        <a href="gear.html" class="nav-link">Gear</a>
+          <a href="custompc.html" class="nav-link">Custom PC</a>
+          <a href="pc-components.html" class="nav-link">PC Components</a>
+          <a href="prebuilt.html" class="nav-link">Prebuilt PCs</a>
+          <a href="gaming-laptop.html" class="nav-link">Gaming Laptops</a>
+          <a href="gear.html" class="nav-link">Gear</a>
         </div>
 
         <!-- Icons -->
@@ -50,21 +50,23 @@
             <span class="cart-badge">0</span>
           </button>
 
-          <!-- Hamburger toggle (visible on tablet/mobile only via CSS) -->
-          <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-            <span></span><span></span><span></span>
-          </button>
-
         </div>
       </div>
-    </nav>
 
-    <div class="nav-overlay" aria-hidden="true"></div>
+      <!-- Horizontal nav strip — visible on tablet / mobile only -->
+      <div class="nav-strip">
+        <a href="custompc.html" class="nav-strip-link">Custom PC</a>
+        <a href="pc-components.html" class="nav-strip-link">PC Components</a>
+        <a href="prebuilt.html" class="nav-strip-link">Prebuilt PCs</a>
+        <a href="gaming-laptop.html" class="nav-strip-link">Gaming Laptops</a>
+        <a href="gear.html" class="nav-strip-link">Gear</a>
+      </div>
+    </nav>
   `);
 
-  // Highlight active nav link based on current page
+  // Highlight active link in both desktop nav and mobile strip
   const currentPage = window.location.pathname.split('/').pop();
-  document.querySelectorAll('.nav-link').forEach(link => {
+  document.querySelectorAll('.nav-link, .nav-strip-link').forEach(link => {
     if (link.getAttribute('href') === currentPage) {
       link.classList.add('active');
     }
@@ -80,35 +82,4 @@
   const builds = JSON.parse(localStorage.getItem('itzone_custom_builds') || '[]');
   const count  = cart.reduce((s, i) => s + i.qty, 0) + builds.reduce((s, b) => s + b.qty, 0);
   document.querySelector('.cart-badge').textContent = count;
-
-  // ── Mobile drawer toggle ──────────────────────────────────────────────────
-  const toggle  = document.querySelector('.nav-toggle');
-  const drawer  = document.querySelector('.nav-links');
-  const overlay = document.querySelector('.nav-overlay');
-
-  function closeNav() {
-    toggle.classList.remove('open');
-    drawer.classList.remove('open');
-    overlay.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('nav-locked');
-  }
-
-  function openNav() {
-    toggle.classList.add('open');
-    drawer.classList.add('open');
-    overlay.classList.add('open');
-    toggle.setAttribute('aria-expanded', 'true');
-    document.body.classList.add('nav-locked');
-  }
-
-  toggle.addEventListener('click', () => {
-    drawer.classList.contains('open') ? closeNav() : openNav();
-  });
-  overlay.addEventListener('click', closeNav);
-  drawer.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', closeNav));
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= 1024) closeNav();
-  });
 })();

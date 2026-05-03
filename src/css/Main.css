@@ -98,7 +98,10 @@ body { background: var(--dark-bg); color: var(--text); font-family: 'Exo 2', san
   gap: 40px;
 }
 
-@media (max-width: 1023px) { .hero-content { flex-direction: column; } }
+@media (max-width: 1023px) {
+  .hero-content { flex-direction: column; }
+  .hero { padding-top: 114px; }
+}
 
 .hero-text { flex: 1; text-align: left; max-width: 600px; }
 
@@ -899,9 +902,14 @@ body { background: var(--dark-bg); color: var(--text); font-family: 'Exo 2', san
 .alt-btn {
   background: #e5e5e5;
   border: none;
-  padding: 8px 30px;
-  border-radius: 8px;
-  font-size: 12px;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s;
   cursor: pointer;
 }
 
