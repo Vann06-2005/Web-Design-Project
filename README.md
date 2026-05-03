@@ -10,7 +10,12 @@ A responsive front-end prototype for a Cambodian gaming PC e-commerce store. Use
 
 | Student ID | Full Name | Role | Responsibilities |
 |------------|-----------|------|-----------------|
-| — | Sovannara Phoung | Front-end Developer / UI Designer | All design, all front-end implementation |
+| e20230093 | Phoung Sovannara | Project Lead / Front-end Developer | Project structure, shared components (navbar/footer), cart system, custom PC builder, auth pages, checkout/payment, base CSS, responsive design across all pages |
+| e20230076 | Tiv Chhengsim | Front-end Developer / UI Designer | Gaming laptop page, product detail page, navbar redesign, card styles, responsive layout (tablet/phone), profile page design, gear page fixes |
+| e20230138 | Teav Encheng | Front-end Developer | Cart & payment pages, payment logic, initial page versions and iteration |
+| e20230197 | Thon Leanghor | Front-end Developer | Sign in / sign up pages, custom PC builder logic, gaming laptop section layout |
+| e20230171 | Reng Ingseng | Front-end Developer | Profile page design and layout |
+| e20230820 | Vutha Daraleap | Front-end Developer | Gear page — images, CSS, and JavaScript |
 
 ---
 
