@@ -125,6 +125,8 @@
   transition: all 0.3s;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .card::before {
@@ -168,6 +170,7 @@
   color: #1a1a2e;
   margin-bottom: 8px;
   letter-spacing: 0.03em;
+  flex: 1;
 }
 
 .card span {
