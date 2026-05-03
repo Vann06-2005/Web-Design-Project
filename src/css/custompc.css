@@ -324,7 +324,7 @@
 
 @media (max-width: 480px) {
   .pc-wrapper { margin-top: 10px;}
-  .pc-grid { grid-template-columns: 1fr; gap: 12px; }
+  .pc-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .selected-items { flex-direction: column; gap: 8px; }
   .sel-item { white-space: normal; }
 }

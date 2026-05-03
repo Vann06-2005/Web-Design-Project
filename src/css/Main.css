@@ -100,7 +100,7 @@ body { background: var(--dark-bg); color: var(--text); font-family: 'Exo 2', san
 
 @media (max-width: 1023px) {
   .hero-content { flex-direction: column; }
-  .hero { padding-top: 114px; }
+  .hero { padding-top: 20px; }
 }
 
 .hero-text { flex: 1; text-align: left; max-width: 600px; }

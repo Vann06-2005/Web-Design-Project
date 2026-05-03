@@ -435,17 +435,19 @@
 
 /* === RESPONSIVE === */
 @media (max-width: 1100px) {
+  .prebuilt-wrapper { margin-top: 20px; }
   .product-grid { grid-template-columns: repeat(3, 1fr); }
   .featured-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 900px) {
+  .prebuilt-wrapper { margin-top: 20px; }
   .product-grid { grid-template-columns: repeat(2, 1fr); }
   .featured-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-  .prebuilt-wrapper { padding: 16px 20px 32px; overflow-x: hidden; }
+  .prebuilt-wrapper { margin-top: 10px; padding: 16px 20px 32px; overflow-x: hidden; }
   .filter-bar { gap: 8px; padding: 12px 14px; }
   .filter-sort-wrap { margin-left: 0; width: 100%; justify-content: flex-start; flex-wrap: wrap; }
   /* Keep 2-col featured and tighten card padding */

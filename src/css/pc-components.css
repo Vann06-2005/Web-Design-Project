@@ -197,15 +197,17 @@
 
 /* === RESPONSIVE === */
 @media (max-width: 1100px) {
+  .pc-wrapper { margin-top: 20px; }
   .pc-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 900px) {
+  .pc-wrapper { margin-top: 20px; }
   .pc-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-  .pc-wrapper { padding: 16px 20px 32px; }
+  .pc-wrapper { margin-top: 10px; padding: 16px 20px 32px; }
   .pc-layout { flex-direction: column; }
   .pc-sidebar { width: 100%; min-width: 0; padding-bottom: 12px; }
   .pc-menu {
@@ -223,5 +225,5 @@
 }
 
 @media (max-width: 480px) {
-  .pc-grid { grid-template-columns: 1fr; gap: 12px; }
+  .pc-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
 }

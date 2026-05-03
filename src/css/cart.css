@@ -387,19 +387,23 @@ body { padding-top: 72px; }
 /* Mobile Adjustments */
 @media (max-width: 700px) {
     .cart-item {
-        flex-direction: column; 
-        text-align: center; 
+        align-items: flex-start;
+        gap: 12px;
     }
-    
+
+    .img-frame {
+        width: 80px;
+        height: 80px;
+        min-width: 80px;
+    }
+
     .actions {
-        flex-direction: column; /* Stack elements vertically */
-        align-items: center;
-        width: 100%;
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
     .remove-btn {
-        order: 10;
-        width: 100%;
+        padding: 8px 18px;
     }
 
     .custom-build-parts {
