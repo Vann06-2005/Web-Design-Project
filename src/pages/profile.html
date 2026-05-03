@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../components/navbar.css">
+    <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/profile.css">
-    <title>IT-Zone-Profile</title>
+    <title>IT-Zone - Profile</title>
 </head>
 <body>
 
 <script src="../components/navbar.js"></script>
 
 <div class="dashboard-container">
-    
+
+    <div class="breadcrumb">
+        <span class="bc-home">Home</span>
+        <span class="bc-sep">/</span>
+        <span class="bc-current">Profile</span>
+    </div>
+
     <!-- Profile Header Section -->
     <div class="card profile-header">
         <div class="profile-user-info">
@@ -25,11 +31,11 @@
                 <div class="contact-row" id="profile-email"></div>
                 <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
                     <button class="btn-edit">✏️ Edit Profile</button>
-                    <button class="btn-edit" id="logout-btn" style="background:#ef4444;">🚪 Logout</button>
+                    <button class="btn-edit btn-logout" id="logout-btn">🚪 Logout</button>
                 </div>
             </div>
         </div>
-        
+
         <div class="profile-stats">
             <div class="stat-item">
                 <div class="stat-icon">📦</div>
@@ -62,11 +68,10 @@
         </div>
 
         <div class="order-list">
-            
-            <!-- Order 1 -->
+
             <div class="order-card">
                 <div class="product-image">
-                    <img src="https://placehold.co/150x100/ffffff/333333?text=GPU" alt="GPU">
+                    <img src="https://placehold.co/150x100/0D1520/00F0FF?text=GPU" alt="GPU">
                 </div>
                 <div class="order-info">
                     <h3>Order #HH1256</h3>
@@ -77,13 +82,11 @@
                     <span class="price">$59,999</span>
                     <span class="qty">Quantity: 1</span>
                 </div>
-               
             </div>
 
-            <!-- Order 2 -->
             <div class="order-card">
                 <div class="product-image">
-                    <img src="https://placehold.co/150x100/ffffff/333333?text=CPU" alt="CPU">
+                    <img src="https://placehold.co/150x100/0D1520/00F0FF?text=CPU" alt="CPU">
                 </div>
                 <div class="order-info">
                     <h3>Order #HH1203</h3>
@@ -94,13 +97,11 @@
                     <span class="price">$34,499</span>
                     <span class="qty">Quantity: 1</span>
                 </div>
-                
             </div>
 
-            <!-- Order 3 -->
             <div class="order-card">
                 <div class="product-image">
-                    <img src="https://placehold.co/150x100/ffffff/333333?text=MB" alt="Motherboard">
+                    <img src="https://placehold.co/150x100/0D1520/00F0FF?text=MB" alt="Motherboard">
                 </div>
                 <div class="order-info">
                     <h3>Order #HH1180</h3>
@@ -113,10 +114,9 @@
                 </div>
             </div>
 
-            <!-- Order 4 -->
             <div class="order-card">
                 <div class="product-image">
-                    <img src="https://placehold.co/150x100/ffffff/333333?text=RAM" alt="RAM">
+                    <img src="https://placehold.co/150x100/0D1520/00F0FF?text=RAM" alt="RAM">
                 </div>
                 <div class="order-info">
                     <h3>Order #HH1145</h3>
@@ -143,7 +143,7 @@
     document.getElementById('profile-email').textContent = '✉️ ' + user.email;
     const avatarName = encodeURIComponent(user.username);
     document.getElementById('profile-avatar').src =
-      'https://ui-avatars.com/api/?name=' + avatarName + '&background=e5e7eb&color=111827&size=200';
+      'https://ui-avatars.com/api/?name=' + avatarName + '&background=0D1520&color=00F0FF&size=200';
     document.getElementById('profile-avatar').alt = user.username;
 
     document.getElementById('logout-btn').addEventListener('click', function () {
