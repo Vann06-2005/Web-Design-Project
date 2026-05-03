@@ -34,7 +34,7 @@
             </svg>
           </button>
 
-          <button class="nav-icon-btn" aria-label="Account" onclick="window.location.href='signin.html'">
+          <button class="nav-icon-btn" aria-label="Account">
             <svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
               <circle cx="12" cy="7" r="4"/>
@@ -47,7 +47,7 @@
               <line x1="3" y1="6" x2="21" y2="6"/>
               <path d="M16 10a4 4 0 0 1-8 0"/>
             </svg>
-            <span class="cart-badge">3</span>
+            <span class="cart-badge">0</span>
           </button>
 
           <!-- Hamburger toggle (visible on tablet/mobile only via CSS) -->
@@ -69,6 +69,17 @@
       link.classList.add('active');
     }
   });
+
+  // ── Account button: profile if logged in, signin if not ──────────────────
+  document.querySelector('.nav-icon-btn[aria-label="Account"]').addEventListener('click', function () {
+    window.location.href = localStorage.getItem('itzone_user') ? 'profile.html' : 'signin.html';
+  });
+
+  // ── Real cart badge ───────────────────────────────────────────────────────
+  const cart   = JSON.parse(localStorage.getItem('itzone_cart') || '[]');
+  const builds = JSON.parse(localStorage.getItem('itzone_custom_builds') || '[]');
+  const count  = cart.reduce((s, i) => s + i.qty, 0) + builds.reduce((s, b) => s + b.qty, 0);
+  document.querySelector('.cart-badge').textContent = count;
 
   // ── Mobile drawer toggle ──────────────────────────────────────────────────
   const toggle  = document.querySelector('.nav-toggle');
@@ -97,7 +108,6 @@
   overlay.addEventListener('click', closeNav);
   drawer.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', closeNav));
 
-  // Close drawer if window resizes back to desktop
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 1024) closeNav();
   });

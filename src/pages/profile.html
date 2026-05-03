@@ -17,14 +17,16 @@
     <div class="card profile-header">
         <div class="profile-user-info">
             <div class="avatar-container">
-                <img src="https://ui-avatars.com/api/?name=Arjun+Sharma&background=e5e7eb&color=111827&size=200" alt="Arjun Sharma">
+                <img id="profile-avatar" src="" alt="Avatar">
                 <button class="camera-btn">📷</button>
             </div>
             <div class="profile-details">
-                <h1>Arjun Sharma</h1>
-                <div class="contact-row">✉️ arjun.sharma@example.com</div>
-                
-                <button class="btn-edit">✏️ Edit Profile</button>
+                <h1 id="profile-username"></h1>
+                <div class="contact-row" id="profile-email"></div>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
+                    <button class="btn-edit">✏️ Edit Profile</button>
+                    <button class="btn-edit" id="logout-btn" style="background:#ef4444;">🚪 Logout</button>
+                </div>
             </div>
         </div>
         
@@ -132,5 +134,23 @@
 </div>
 
 <script src="../components/footer.js"></script>
+<script>
+  const user = JSON.parse(localStorage.getItem('itzone_user') || 'null');
+  if (!user) {
+    window.location.href = 'signin.html';
+  } else {
+    document.getElementById('profile-username').textContent = user.username;
+    document.getElementById('profile-email').textContent = '✉️ ' + user.email;
+    const avatarName = encodeURIComponent(user.username);
+    document.getElementById('profile-avatar').src =
+      'https://ui-avatars.com/api/?name=' + avatarName + '&background=e5e7eb&color=111827&size=200';
+    document.getElementById('profile-avatar').alt = user.username;
+
+    document.getElementById('logout-btn').addEventListener('click', function () {
+      localStorage.removeItem('itzone_user');
+      window.location.href = 'Main.html';
+    });
+  }
+</script>
 </body>
 </html>

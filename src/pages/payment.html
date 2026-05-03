@@ -76,7 +76,7 @@
                 <div class="form-group">
                     <label for="card-num">Card Number</label>
                     <div class="card-input-container">
-                        <input type="text" id="card-num" placeholder="0000 0000 0000 0000" maxlength="19">
+                        <input type="text" id="card-num" placeholder="0000 0000 0000 0000" maxlength="19" required>
                         <div class="card-icons">
                             <span style="background: #1a1aff; color: white; padding: 2px 4px; font-size: 10px; border-radius: 2px; font-weight: bold;">VISA</span>
                         </div>
@@ -85,16 +85,16 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="expiry">Expiry Date</label>
-                        <input type="text" id="expiry" placeholder="MM/YY" maxlength="5">
+                        <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" required>
                     </div>
                     <div class="form-group">
                         <label for="cvv">CVV</label>
-                        <input type="password" id="cvv" placeholder="***" maxlength="3">
+                        <input type="password" id="cvv" placeholder="***" maxlength="3" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="card-name">Name on Card</label>
-                    <input type="text" id="card-name">
+                    <input type="text" id="card-name" required>
                 </div>
             </div>
 
@@ -116,6 +116,8 @@
     </div>
 
     <script>
+        const cardFields = () => document.querySelectorAll('#card-num, #expiry, #cvv, #card-name');
+
         function showPayment(method) {
             const creditSection = document.getElementById('credit-section');
             const qrSection = document.getElementById('qr-section');
@@ -127,11 +129,13 @@
                 qrSection.style.display = 'none';
                 creditBtn.classList.remove('inactive');
                 qrBtn.classList.add('inactive');
+                cardFields().forEach(f => f.required = true);
             } else {
                 creditSection.style.display = 'none';
                 qrSection.style.display = 'block';
                 creditBtn.classList.add('inactive');
                 qrBtn.classList.remove('inactive');
+                cardFields().forEach(f => f.required = false);
             }
         }
 
@@ -147,12 +151,51 @@
 
         function handlePayment(event) {
             event.preventDefault();
-            alert("Processing Payment... Thank you for your order!");
-            // Here you would typically send data to your server
+
+            const cart = JSON.parse(localStorage.getItem('itzone_cart') || '[]');
+            const builds = JSON.parse(localStorage.getItem('itzone_custom_builds') || '[]');
+            let total = 0;
+            let itemsHTML = '';
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                itemsHTML += `<div class="inv-item"><span>${item.name}</span><span>${item.qty}x $${itemTotal.toFixed(2)}</span></div>`;
+            });
+
+            builds.forEach((build, idx) => {
+                const buildTotal = build.parts.reduce((sum, p) => sum + p.price, 0) * build.qty;
+                total += buildTotal;
+                itemsHTML += `<div class="inv-item"><span>Custom PC Build ${idx + 1}</span><span>${build.qty}x $${buildTotal.toFixed(2)}</span></div>`;
+            });
+
+            document.getElementById('invoice-items').innerHTML = itemsHTML;
+            document.getElementById('invoice-total-amount').innerText = `$${total.toFixed(2)}`;
+            document.getElementById('invoice-overlay').style.display = 'flex';
+
+            localStorage.removeItem('itzone_cart');
+            localStorage.removeItem('itzone_custom_builds');
             return false;
         }
     </script>
+    <!-- Invoice Modal -->
+    <div id="invoice-overlay" style="display:none;">
+        <div id="invoice-modal">
+            <div id="invoice-success-icon">&#10003;</div>
+            <h2 id="invoice-title">Payment Successful!</h2>
+            <p id="invoice-subtitle">Thank you for your order. Here's your receipt.</p>
+            <div id="invoice-body">
+                <div id="invoice-items"></div>
+                <div id="invoice-total-row">
+                    <span>Total Paid</span>
+                    <span id="invoice-total-amount"></span>
+                </div>
+            </div>
+            <a href="../pages/Main.html" id="invoice-home-btn">Go to Homepage</a>
+        </div>
+    </div>
+
     <script src="../js/cart.js"></script>
-    <script src="../js/payment-logic.js"></script>    
+    <script src="../js/payment-logic.js"></script>
 </body>
 </html>

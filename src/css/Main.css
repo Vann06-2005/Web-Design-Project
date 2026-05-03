@@ -999,7 +999,7 @@ body { background: var(--dark-bg); color: var(--text); font-family: 'Exo 2', san
   .alt-content { padding: 28px 36px; }
 }
 
-/* Mobile: single column everywhere, simplify hero */
+/* Mobile: hero/layout adjustments — product grid stays 2-col down to 480px */
 @media (max-width: 768px) {
   .container { padding: 0 16px; }
   .hero-content { padding: 32px 16px 56px; gap: 24px; }
@@ -1011,8 +1011,9 @@ body { background: var(--dark-bg); color: var(--text); font-family: 'Exo 2', san
   .hero-image { width: 100%; max-width: 100%; }
   .hero-img { width: 100%; height: auto; }
   .promo-hero-img img { width: 100%; }
-  .product-grid { grid-template-columns: 1fr; }
-  .product-img-wrap { height: 220px; }
+  /* 2 columns, shorter image to match narrower cards */
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .product-img-wrap { height: 180px; }
   /* Section vertical spacing reduced on mobile */
   .prebuilt-section, .promo-banner, .feature-build, .awards-section, .about-section { padding: 48px 0; }
   .promo-content-wrap { height: auto; }
@@ -1035,8 +1036,11 @@ body { background: var(--dark-bg); color: var(--text); font-family: 'Exo 2', san
   .promo-hero-text h1 { font-size: 28px; }
 }
 
-/* Small mobile: type tightening */
+/* Small mobile: 1 column, type tightening */
 @media (max-width: 480px) {
+  .product-grid { grid-template-columns: 1fr; gap: 14px; }
+  .product-img-wrap { height: 200px; }
+  .prod-img { object-fit: contain; }
   .hero-stats { flex-direction: column; gap: 14px; align-items: flex-start; }
   .hero-stat-divider { display: none; }
   .hero-float-badge-bottom { font-size: 10px; padding: 8px 14px; }

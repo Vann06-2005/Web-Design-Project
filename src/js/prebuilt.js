@@ -279,7 +279,7 @@ function renderFeatured() {
       <div class="featured-card-specs">${p.specs}</div>
       <div class="featured-card-bottom">
         <span class="card-price">${p.price.toLocaleString()}<span>$</span></span>
-        <button class="btn-shop" onclick="addToCart('${p.name}', ${p.price}, '${p.img}', this)">Shop</button>
+        <button class="btn-shop" onclick="addToCart('${p.name}', ${p.price}, '${p.img}', this)">Add to Cart</button>
       </div>
     </div>
   `,
@@ -308,7 +308,7 @@ function renderGrid(products) {
       <div class="product-card-specs">${p.specs}</div>
       <div class="product-card-bottom">
         <span class="product-price">${p.price.toLocaleString()}$</span>
-        <button class="btn-shop" onclick="addToCart('${p.name}', ${p.price}, '${p.img}', this)">Shop</button>
+        <button class="btn-shop" onclick="addToCart('${p.name}', ${p.price}, '${p.img}', this)">Add to Cart</button>
       </div>
     </div>
   `,

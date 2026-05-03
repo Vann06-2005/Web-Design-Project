@@ -68,7 +68,7 @@
   text-shadow: 0 0 8px rgba(25, 248, 92, 0.4);
 }
 
-.menu li:first-child {
+.menu li.active {
   background: rgba(0, 240, 255, 0.12);
   color: var(--cyan);
   border-left: 3px solid var(--cyan);

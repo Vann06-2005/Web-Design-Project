@@ -1,18 +1,19 @@
-// Ensure you include your cart.js before this script to use getCart()
+// Ensure you include cart.js before this script
 function loadOrderSummary() {
     const orderContainer = document.getElementById('dynamic-order-items');
     const totalElement = document.getElementById('checkout-grand-total');
-    const qrTextTotal = document.querySelector('#qr-section p'); // The text under QR code
-    
+    const qrTextTotal = document.querySelector('#qr-section p');
+
     const cart = JSON.parse(localStorage.getItem('itzone_cart') || '[]');
+    const builds = JSON.parse(localStorage.getItem('itzone_custom_builds') || '[]');
     let total = 0;
 
-    if (cart.length === 0) {
+    if (cart.length === 0 && builds.length === 0) {
         orderContainer.innerHTML = '<div class="item">Your cart is empty</div>';
         return;
     }
 
-    orderContainer.innerHTML = ''; // Clear hardcoded items
+    orderContainer.innerHTML = '';
 
     cart.forEach(item => {
         const itemTotal = item.price * item.qty;
@@ -22,20 +23,31 @@ function loadOrderSummary() {
         itemRow.className = 'item';
         itemRow.innerHTML = `
             <span>${item.name}</span>
-            <span>${item.qty}x $${item.price}</span>
+            <span>${item.qty}x $${itemTotal.toFixed(2)}</span>
         `;
         orderContainer.appendChild(itemRow);
     });
 
-    // Update Totals
+    builds.forEach((build, idx) => {
+        const partTotal = build.parts.reduce((sum, p) => sum + p.price, 0);
+        const buildTotal = partTotal * build.qty;
+        total += buildTotal;
+
+        const buildRow = document.createElement('div');
+        buildRow.className = 'item';
+        buildRow.innerHTML = `
+            <span>Custom PC Build ${idx + 1}</span>
+            <span>${build.qty}x $${buildTotal.toFixed(2)}</span>
+        `;
+        orderContainer.appendChild(buildRow);
+    });
+
     const formattedTotal = total.toFixed(2);
     totalElement.innerText = `$${formattedTotal}`;
-    
-    // Also update the QR code text if it exists
+
     if (qrTextTotal) {
         qrTextTotal.innerText = `Scan to pay $${formattedTotal} instantly`;
     }
 }
 
-// Run the function when the page loads
 document.addEventListener('DOMContentLoaded', loadOrderSummary);

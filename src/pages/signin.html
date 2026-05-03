@@ -337,12 +337,20 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
   clearError('loginEmail', errEl);
   clearError('loginPassword', errEl);
 
-  if (!email) return setError('loginEmail', errEl, 'Please enter your email or phone.');
+  if (!email)    return setError('loginEmail',    errEl, 'Please enter your email or phone.');
   if (!password) return setError('loginPassword', errEl, 'Please enter your password.');
   if (password.length < 8) return setError('loginPassword', errEl, 'Password must be at least 8 characters.');
 
+  const users = JSON.parse(localStorage.getItem('itzone_users') || '[]');
+  const match = users.find(u => u.email === email && u.password === password);
+  if (!match) return setError('loginPassword', errEl, 'Incorrect email or password.');
+
+  localStorage.setItem('itzone_user', JSON.stringify({ username: match.username, email: match.email }));
   showSuccess(errEl, '✓ Login successful! Redirecting…');
-  setTimeout(() => alert('Welcome back, ' + email + '!'), 1500);
+
+  const redirect = sessionStorage.getItem('itzone_login_redirect');
+  sessionStorage.removeItem('itzone_login_redirect');
+  setTimeout(() => { window.location.href = redirect || 'Main.html'; }, 1000);
 });
 
 // ================================================
@@ -362,6 +370,12 @@ document.getElementById('signupForm').addEventListener('submit', function (e) {
   if (!password) return setError('signupPassword', errEl, 'Please enter a password.');
   if (password.length < 8) return setError('signupPassword', errEl, 'Password must be at least 8 characters.');
   if (password === email)  return setError('signupPassword', errEl, 'Password must not match your email.');
+
+  const users = JSON.parse(localStorage.getItem('itzone_users') || '[]');
+  if (users.find(u => u.email === email)) return setError('signupEmail', errEl, 'This email is already registered.');
+
+  users.push({ username, email, password });
+  localStorage.setItem('itzone_users', JSON.stringify(users));
 
   showSuccess(errEl, '✓ Account created! Please log in.');
   setTimeout(() => navigateTo('view-login'), 1500);

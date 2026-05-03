@@ -487,7 +487,7 @@ function renderGrid(category) {
         <span class="pc-card-brand">${p.brand}</span>
         <span class="pc-card-price">${p.price}</span>
       </div>
-      <button class="btn-shop">Shop</button>
+      <button class="btn-shop">Add to Cart</button>
     </div>
   `,
     )

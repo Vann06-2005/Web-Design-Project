@@ -83,21 +83,34 @@ function viewDetail() {
   window.location.href = 'product-detail.html';
 }
 
-function renderGear() {
+function renderCategory(title) {
+  const category = gearCategories.find(c => c.title.toLowerCase() === title.toLowerCase());
+  if (!category) return;
+
   const main = document.getElementById('gear-main');
-  main.innerHTML = gearCategories.map((category, catIdx) => `
+  main.innerHTML = `
     <h2 class="title">${category.title}</h2>
     <div class="grid">
-      ${category.products.map((p, prodIdx) => `
+      ${category.products.map(p => `
         <div class="card">
-          <img src="${p.img}" alt="${p.name}" onclick="viewDetail(${catIdx},${prodIdx})" style="cursor:pointer" />
+          <img src="${p.img}" alt="${p.name}" onclick="viewDetail()" style="cursor:pointer" />
           <h4>${p.name}</h4>
           <span>${p.price.toFixed(2)}$</span>
-          <button onclick="addToCartFromCard(this)">Buy</button>
+          <button onclick="addToCartFromCard(this)">Add to Cart</button>
         </div>
       `).join('')}
     </div>
-  `).join('');
+  `;
 }
 
-renderGear();
+// Wire sidebar clicks — same pattern as pc-components
+document.querySelectorAll('.menu li[data-category]').forEach(li => {
+  li.addEventListener('click', () => {
+    document.querySelectorAll('.menu li').forEach(el => el.classList.remove('active'));
+    li.classList.add('active');
+    renderCategory(li.dataset.category);
+  });
+});
+
+// Show first category on load
+renderCategory('Headphone');
