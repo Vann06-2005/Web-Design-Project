@@ -152,18 +152,122 @@
 
 
 /* ============================================================
-   RESPONSIVE
+   HAMBURGER TOGGLE — hidden on desktop
    ============================================================ */
-@media (max-width: 768px) {
-  .nav-container {
-    padding: 0 20px;
-  }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 4px;
+  z-index: 60;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--cyan);
+  border-radius: 1px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+/* ============================================================
+   OVERLAY — backdrop behind drawer
+   ============================================================ */
+.nav-overlay {
+  position: fixed;
+  inset: 72px 0 0 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 49;
+}
+
+.nav-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.nav-locked { overflow: hidden; }
+
+
+/* ============================================================
+   RESPONSIVE — tablet (≤1023px) collapses nav into drawer
+   ============================================================ */
+@media (max-width: 1023px) {
+  .nav-container { padding: 0 24px; }
+
+  .nav-toggle { display: flex; }
 
   .nav-links {
-    display: none;
+    position: fixed;
+    top: 72px;
+    right: 0;
+    height: calc(100vh - 72px);
+    width: min(320px, 85vw);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 20px 16px;
+    background: var(--dark-bg);
+    border-left: 1px solid rgba(0, 240, 255, 0.15);
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.5);
+    transform: translateX(100%);
+    visibility: hidden;
+    /* visibility delays: immediate on open, waits for slide-out before hiding */
+    transition: transform 0.3s ease, visibility 0s ease 0.3s;
+    z-index: 50;
+    overflow-y: auto;
   }
 
-  .nav-icons {
-    gap: 8px;
+  .nav-links.open {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.3s ease, visibility 0s ease 0s;
   }
+
+  /* Drawer links only — scoped to avoid affecting .nav-home-btn */
+  .nav-links .nav-link {
+    width: 100%;
+    padding: 16px 14px;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0;
+  }
+
+  .nav-links .nav-link::after { display: none; }
+
+  .nav-links .nav-link:hover,
+  .nav-links .nav-link.active {
+    background: rgba(0, 240, 255, 0.06);
+    color: var(--cyan);
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVE — mobile (≤640px) tighter spacing
+   ============================================================ */
+@media (max-width: 640px) {
+  .nav-container { padding: 0 16px; }
+  .nav-logo { font-size: 22px; letter-spacing: 0.08em; }
+  .nav-icons { gap: 6px; }
+  .nav-icon-btn { padding: 6px; }
+  .nav-icon { width: 22px; height: 22px; }
 }

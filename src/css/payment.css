@@ -1,24 +1,16 @@
 body {
   padding-top: 72px;
   min-height: 100vh;
-  background: #080b10;
+  background-color: #020617;
+  color: #ffffff;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
-main {
-  flex: 1;
-}
-p{
-    color: white;
-}
-body {
-            background-color: #020617;
-            color: #ffffff;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
+main { flex: 1; }
+p { color: white; }
         .container {
             width: 100%;
             max-width: 800px;
@@ -192,33 +184,28 @@ body {
 }
 
 /* 3. Media Queries for Mobile Fine-Tuning */
+@media screen and (max-width: 1024px) {
+    .container { max-width: 100%; padding: 0 20px; }
+}
+
 @media screen and (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
+    .container { padding: 0 12px; }
 
     .checkout-title {
-        flex-direction: column; /* Stack Checkout title and View Cart link */
+        flex-direction: column;
         align-items: flex-start;
         gap: 10px;
     }
 
-    .form-row {
-        gap: 10px; /* Tighter gap on mobile */
-    }
+    .form-row { gap: 10px; }
+    .form-group { flex: 1 1 100%; }
 
-    .summary-header div {
-        display: none; /* Hide QTY/Total headers on very small screens to save space */
-    }
+    .summary-header div { display: none; }
+    .total { font-size: 1rem; }
 
-    .total {
-        font-size: 1rem;
-    }
+    .pay-btn { font-size: 16px; padding: 14px; }
 
-    .pay-btn {
-        font-size: 16px;
-        padding: 14px;
-    }
+    .qr-box { width: 100%; max-width: 240px; }
 }
 
 /* Fix for the card input container to ensure icons don't overlap text */

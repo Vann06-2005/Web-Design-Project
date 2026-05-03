@@ -11,10 +11,19 @@
     --build-part-border: #f1f5f9;
 }
 
+body { padding-top: 72px; }
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 50px 20px 40px;
+    padding: 20px 20px 40px;
+}
+
+@media (max-width: 640px) {
+    .container { padding: 12px 14px 32px; }
+    .cart-header-title { margin-top: 20px; }
+    .summary-card { padding: 20px; }
+    .checkout-btn { padding: 14px 40px; font-size: 1rem; width: 100%; }
 }
 
 .cart-header-title { 
@@ -31,7 +40,7 @@
     padding: 20px;
     color: black;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr));
     gap: 20px;
 }
 

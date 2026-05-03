@@ -200,13 +200,28 @@
   .pc-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
+@media (max-width: 900px) {
+  .pc-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 768px) {
   .pc-wrapper { padding: 16px 20px 32px; }
   .pc-layout { flex-direction: column; }
-  .pc-sidebar { width: 100%; padding-bottom: 12px; }
-  .pc-menu { display: flex; flex-wrap: wrap; gap: 6px; }
-  .pc-menu-item { padding: 8px 12px; font-size: 13px; }
+  .pc-sidebar { width: 100%; min-width: 0; padding-bottom: 12px; }
+  .pc-menu {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 6px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+  .pc-menu-item { padding: 8px 14px; font-size: 13px; flex-shrink: 0; }
+  .pc-menu-divider { display: none; }
   .pc-builder-title { padding: 0 0 12px; }
   .pc-main { padding: 16px 0 0; }
-  .pc-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .pc-grid { grid-template-columns: 1fr; gap: 12px; }
 }

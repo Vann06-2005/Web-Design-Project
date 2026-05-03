@@ -26,7 +26,7 @@
 body {
     background-color: var(--bg-body);
     color: var(--text-main);
-    padding: 40px 20px;
+    padding: 112px 20px 40px;
     display: flex;
     justify-content: center;
 }
@@ -280,4 +280,14 @@ body {
         flex-wrap: wrap;
         gap: 32px;
     }
+}
+
+@media (max-width: 540px) {
+    body { padding: 96px 12px 32px; }
+    .card { padding: 20px; }
+    .profile-user-info { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .avatar-container { width: 96px; height: 96px; }
+    .profile-details h1 { font-size: 20px; }
+    .profile-stats { gap: 16px; flex-direction: column; }
+    .order-section-header h2 { font-size: 18px; }
 }

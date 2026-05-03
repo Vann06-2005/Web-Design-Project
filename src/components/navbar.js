@@ -50,15 +50,55 @@
             <span class="cart-badge">3</span>
           </button>
 
+          <!-- Hamburger toggle (visible on tablet/mobile only via CSS) -->
+          <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+
         </div>
       </div>
     </nav>
+
+    <div class="nav-overlay" aria-hidden="true"></div>
   `);
+
   // Highlight active nav link based on current page
   const currentPage = window.location.pathname.split('/').pop();
   document.querySelectorAll('.nav-link').forEach(link => {
     if (link.getAttribute('href') === currentPage) {
       link.classList.add('active');
     }
+  });
+
+  // ── Mobile drawer toggle ──────────────────────────────────────────────────
+  const toggle  = document.querySelector('.nav-toggle');
+  const drawer  = document.querySelector('.nav-links');
+  const overlay = document.querySelector('.nav-overlay');
+
+  function closeNav() {
+    toggle.classList.remove('open');
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('nav-locked');
+  }
+
+  function openNav() {
+    toggle.classList.add('open');
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('nav-locked');
+  }
+
+  toggle.addEventListener('click', () => {
+    drawer.classList.contains('open') ? closeNav() : openNav();
+  });
+  overlay.addEventListener('click', closeNav);
+  drawer.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', closeNav));
+
+  // Close drawer if window resizes back to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024) closeNav();
   });
 })();
