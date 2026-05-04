@@ -183,24 +183,23 @@
 }
 
 .card button {
-  background: linear-gradient(180deg, #00F0FF 0%, #00C8D4 100%);
+  background: var(--cyan);
   border: none;
-  color: #000;
+  color: var(--dark-bg);
   font-family: 'Rajdhani', sans-serif;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 10px 28px;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
 }
 
 .card button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 25px rgba(0, 240, 255, 0.5);
+  background: var(--white);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
 }
 
 

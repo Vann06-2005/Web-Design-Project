@@ -69,10 +69,24 @@
   margin: 0 0 8px;
 }
 
-.pd-stock {
+.pd-price-old {
   font-size: 1rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  text-decoration: line-through;
+  margin-left: 8px;
+}
+
+.pd-stock {
+  font-size: 0.95rem;
   font-weight: 600;
   color: #22c55e;
+  margin: 0 0 6px;
+}
+
+.pd-returns {
+  font-size: 0.85rem;
+  color: var(--gray-400);
   margin: 0 0 16px;
 }
 
