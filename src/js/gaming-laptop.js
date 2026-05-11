@@ -1,7 +1,8 @@
 const featured = [
   {
     name: "ASUS TUF Gaming A16 – FA608UM-NS73",
-    specs: "Windows 11 Home · 16.0\" 1920x1200 · GeForce RTX 5060 · AMD Ryzen 200 Series · 16GB DDR5 · 512GB SSD",
+    specs:
+      'Windows 11 Home · 16.0" 1920x1200 · GeForce RTX 5060 · AMD Ryzen 200 Series · 16GB DDR5 · 512GB SSD',
     brand: "ASUS",
     gpu: "RTX 5060",
     memory: "16GB",
@@ -15,7 +16,8 @@ const featured = [
   },
   {
     name: "ASUS ROG Strix G16 – G614JIR-AS94",
-    specs: "Windows 11 Home · 16.0\" 2560x1600 · GeForce RTX 4070 · Intel Core i9-14900HX · 32GB DDR5 · 1TB NVMe SSD",
+    specs:
+      'Windows 11 Home · 16.0" 2560x1600 · GeForce RTX 4070 · Intel Core i9-14900HX · 32GB DDR5 · 1TB NVMe SSD',
     brand: "ASUS",
     gpu: "RTX 4070",
     memory: "32GB",
@@ -29,7 +31,8 @@ const featured = [
   },
   {
     name: "MSI Titan GT77 – GT77HX-13VH",
-    specs: "Windows 11 Home · 17.3\" 3840x2160 · GeForce RTX 4090 · Intel Core i9-13980HX · 64GB DDR5 · 2TB NVMe SSD",
+    specs:
+      'Windows 11 Home · 17.3" 3840x2160 · GeForce RTX 4090 · Intel Core i9-13980HX · 64GB DDR5 · 2TB NVMe SSD',
     brand: "MSI",
     gpu: "RTX 4090",
     memory: "64GB",
@@ -46,7 +49,8 @@ const featured = [
 const allLaptops = [
   {
     name: "Lenovo Legion 5i – 82RB00BEUS",
-    specs: "Windows 11 Home · 15.6\" 1920x1080 · GeForce RTX 4060 · Intel Core i7-14650HX · 16GB DDR5 · 512GB NVMe SSD",
+    specs:
+      'Windows 11 Home · 15.6" 1920x1080 · GeForce RTX 4060 · Intel Core i7-14650HX · 16GB DDR5 · 512GB NVMe SSD',
     brand: "Lenovo",
     gpu: "RTX 4060",
     memory: "16GB",
@@ -60,7 +64,8 @@ const allLaptops = [
   },
   {
     name: "HP Omen 16 – 16-xf0013dx",
-    specs: "Windows 11 Home · 16.1\" 1920x1080 · GeForce RTX 4070 · AMD Ryzen 7 7745HX · 16GB DDR5 · 512GB NVMe SSD",
+    specs:
+      'Windows 11 Home · 16.1" 1920x1080 · GeForce RTX 4070 · AMD Ryzen 7 7745HX · 16GB DDR5 · 512GB NVMe SSD',
     brand: "HP",
     gpu: "RTX 4070",
     memory: "16GB",
@@ -74,7 +79,8 @@ const allLaptops = [
   },
   {
     name: "Acer Predator Helios 16 – PHN16-72-99Y4",
-    specs: "Windows 11 Home · 16.0\" 2560x1600 · GeForce RTX 4080 · Intel Core i9-14900HX · 32GB DDR5 · 1TB NVMe SSD",
+    specs:
+      'Windows 11 Home · 16.0" 2560x1600 · GeForce RTX 4080 · Intel Core i9-14900HX · 32GB DDR5 · 1TB NVMe SSD',
     brand: "Acer",
     gpu: "RTX 4080",
     memory: "32GB",
@@ -88,7 +94,8 @@ const allLaptops = [
   },
   {
     name: "Razer Blade 15 – RZ09-0485",
-    specs: "Windows 11 Home · 15.6\" 2560x1440 · GeForce RTX 4070 Ti · Intel Core i9-13950HX · 32GB DDR5 · 1TB NVMe SSD",
+    specs:
+      'Windows 11 Home · 15.6" 2560x1440 · GeForce RTX 4070 Ti · Intel Core i9-13950HX · 32GB DDR5 · 1TB NVMe SSD',
     brand: "Razer",
     gpu: "RTX 4070 Ti",
     memory: "32GB",
@@ -102,7 +109,8 @@ const allLaptops = [
   },
   {
     name: "MSI Katana 15 – B13VGK-1415US",
-    specs: "Windows 11 Home · 15.6\" 1920x1080 · GeForce RTX 4070 · Intel Core i7-13620H · 16GB DDR5 · 512GB NVMe SSD",
+    specs:
+      'Windows 11 Home · 15.6" 1920x1080 · GeForce RTX 4070 · Intel Core i7-13620H · 16GB DDR5 · 512GB NVMe SSD',
     brand: "MSI",
     gpu: "RTX 4070",
     memory: "16GB",
@@ -116,7 +124,8 @@ const allLaptops = [
   },
   {
     name: "Dell G16 – G7620-7748BLK-PUS",
-    specs: "Windows 11 Home · 16.0\" 2560x1600 · GeForce RTX 4060 · Intel Core i7-13650HX · 16GB DDR5 · 512GB NVMe SSD",
+    specs:
+      'Windows 11 Home · 16.0" 2560x1600 · GeForce RTX 4060 · Intel Core i7-13650HX · 16GB DDR5 · 512GB NVMe SSD',
     brand: "Dell",
     gpu: "RTX 4060",
     memory: "16GB",
@@ -130,7 +139,8 @@ const allLaptops = [
   },
   {
     name: "Gigabyte AORUS 15 – BKF-73US754SH",
-    specs: "Windows 11 Home · 15.6\" 2560x1440 · GeForce RTX 4070 · Intel Core i7-13700H · 32GB DDR5 · 1TB NVMe SSD",
+    specs:
+      'Windows 11 Home · 15.6" 2560x1440 · GeForce RTX 4070 · Intel Core i7-13700H · 32GB DDR5 · 1TB NVMe SSD',
     brand: "Gigabyte",
     gpu: "RTX 4070",
     memory: "32GB",
@@ -144,7 +154,8 @@ const allLaptops = [
   },
   {
     name: "Samsung Galaxy Book4 Ultra – NP960XGL",
-    specs: "Windows 11 Home · 16.0\" 2880x1800 · GeForce RTX 4070 · Intel Core Ultra 9 185H · 32GB LPDDR5 · 1TB NVMe SSD",
+    specs:
+      'Windows 11 Home · 16.0" 2880x1800 · GeForce RTX 4070 · Intel Core Ultra 9 185H · 32GB LPDDR5 · 1TB NVMe SSD',
     brand: "Samsung",
     gpu: "RTX 4070",
     memory: "32GB",
@@ -158,7 +169,8 @@ const allLaptops = [
   },
   {
     name: "LG UltraGear 17 – 17G90Q-K",
-    specs: "Windows 11 Home · 17.0\" 2560x1600 · GeForce RTX 3080 Ti · Intel Core i9-12900H · 32GB DDR5 · 2TB NVMe SSD",
+    specs:
+      'Windows 11 Home · 17.0" 2560x1600 · GeForce RTX 3080 Ti · Intel Core i9-12900H · 32GB DDR5 · 2TB NVMe SSD',
     brand: "LG",
     gpu: "RTX 3080 Ti",
     memory: "32GB",
@@ -172,7 +184,8 @@ const allLaptops = [
   },
   {
     name: "Alienware m18 R2 – AWM18R2-9376BLK",
-    specs: "Windows 11 Home · 18.0\" 2560x1600 · GeForce RTX 4090 · Intel Core i9-14900HX · 64GB DDR5 · 2TB NVMe SSD",
+    specs:
+      'Windows 11 Home · 18.0" 2560x1600 · GeForce RTX 4090 · Intel Core i9-14900HX · 64GB DDR5 · 2TB NVMe SSD',
     brand: "Alienware",
     gpu: "RTX 4090",
     memory: "64GB",
@@ -189,7 +202,7 @@ const allLaptops = [
 let _renderedLaptops = [];
 
 function viewDetail() {
-  window.location.href = 'product-detail.html';
+  window.location.href = "product-detail.html";
 }
 
 function starsHTML(rating) {
@@ -220,7 +233,7 @@ function renderFeatured() {
         <button class="btn-shop" onclick="addToCart('${p.name}', ${p.price}, '${p.img}', this)">Add to Cart</button>
       </div>
     </div>
-  `
+  `,
     )
     .join("");
 }
@@ -229,7 +242,8 @@ function renderGrid(products) {
   _renderedLaptops = products;
   const grid = document.getElementById("product-grid");
   if (!products.length) {
-    grid.innerHTML = '<div class="no-results">No laptops match your filters.</div>';
+    grid.innerHTML =
+      '<div class="no-results">No laptops match your filters.</div>';
     return;
   }
   grid.innerHTML = products
@@ -248,29 +262,29 @@ function renderGrid(products) {
         <button class="btn-shop" onclick="addToCart('${p.name}', ${p.price}, '${p.img}', this)">Add to Cart</button>
       </div>
     </div>
-  `
+  `,
     )
     .join("");
 }
 
 function applyFilters() {
-  const price  = document.getElementById("f-price").value;
-  const brand  = document.getElementById("f-brand").value;
-  const gpu    = document.getElementById("f-gpu").value;
+  const price = document.getElementById("f-price").value;
+  const brand = document.getElementById("f-brand").value;
+  const gpu = document.getElementById("f-gpu").value;
   const memory = document.getElementById("f-memory").value;
-  const sort   = document.getElementById("f-sort").value;
+  const sort = document.getElementById("f-sort").value;
 
   let result = allLaptops.filter((p) => {
-    if (price  && !matchPrice(p.price, price)) return false;
-    if (brand  && p.brand  !== brand)          return false;
-    if (gpu    && p.gpu    !== gpu)            return false;
-    if (memory && p.memory !== memory)         return false;
+    if (price && !matchPrice(p.price, price)) return false;
+    if (brand && p.brand !== brand) return false;
+    if (gpu && p.gpu !== gpu) return false;
+    if (memory && p.memory !== memory) return false;
     return true;
   });
 
-  if (sort === "price-asc")  result.sort((a, b) => a.price - b.price);
+  if (sort === "price-asc") result.sort((a, b) => a.price - b.price);
   if (sort === "price-desc") result.sort((a, b) => b.price - a.price);
-  if (sort === "rating")     result.sort((a, b) => b.rating - a.rating);
+  if (sort === "rating") result.sort((a, b) => b.rating - a.rating);
 
   renderGrid(result);
 }

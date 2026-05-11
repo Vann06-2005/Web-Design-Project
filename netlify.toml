@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/"
+  to = "/src/pages/Main.html"
+  status = 302
+
+[[redirects]]
+  from = "/index.html"
+  to = "/src/pages/Main.html"
+  status = 302
