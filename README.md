@@ -125,7 +125,7 @@ ITZone/
 |----------|------|
 | Figma Prototype | *https://www.figma.com/design/GyHdvkHxl6OSrhEEPVLRBc/IT_Zone_webProject?node-id=0-1&t=e4xqBw24C6nD4lor-1* |
 | GitHub Repository | *https://github.com/Vann06-2005/Web-Design-Project* |
-| Deployed Website | *Havn't deployed yet* |
+| Deployed Website | *https://it-zone-computer.netlify.app/* |
 | Presentation Video | *Will release soon* |
 
 ---

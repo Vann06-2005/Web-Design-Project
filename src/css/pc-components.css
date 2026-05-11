@@ -188,23 +188,11 @@
 .btn-shop {
   display: block;
   width: 100%;
-  background: var(--cyan);
-  color: var(--dark-bg);
-  border: none;
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 16px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 10px 0;
   border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.btn-shop:hover {
-  background: var(--white);
-  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
 }
 
 /* === RESPONSIVE === */
