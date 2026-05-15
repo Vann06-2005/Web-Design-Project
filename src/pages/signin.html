@@ -373,7 +373,6 @@ document.getElementById('signupForm').addEventListener('submit', function (e) {
 
   const users = JSON.parse(localStorage.getItem('itzone_users') || '[]');
   if (users.find(u => u.email === email)) return setError('signupEmail', errEl, 'This email is already registered.');
-
   users.push({ username, email, password });
   localStorage.setItem('itzone_users', JSON.stringify(users));
 
@@ -398,7 +397,7 @@ document.getElementById('forgotForm').addEventListener('submit', function (e) {
   document.getElementById('checkEmailAddress').textContent = email;
   document.getElementById('otpEmailAddress').textContent   = email;
 
-  navigateTo('view-check-email');
+  navigateTo('view-check-email'); 
 });
 
 // ================================================
