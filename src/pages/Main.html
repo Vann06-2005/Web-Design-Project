@@ -127,7 +127,7 @@
           </div>
           <div class="product-bottom">
             <span class="price">1999<span class="price-symbol">$</span></span>
-            <button class="btn-sm">ADD TO CART</button>
+            <button class="btn-sm" onclick="addToCart('Prebuilt PC GXL', 1999, '../assets/images/prebuiltpc1.png', this)">ADD TO CART</button>
           </div>
         </div>
       </div>
@@ -157,7 +157,7 @@
           </div>
           <div class="product-bottom">
             <span class="price">2069<span class="price-symbol">$</span></span>
-            <button class="btn-sm">ADD TO CART</button>
+            <button class="btn-sm" onclick="addToCart('Prebuilt PC GXL Pro', 2069, '../assets/images/prebuiltpc2.png', this)">ADD TO CART</button>
           </div>
         </div>
       </div>
@@ -187,7 +187,7 @@
           </div>
           <div class="product-bottom">
             <span class="price">1489<span class="price-symbol">$</span></span>
-            <button class="btn-sm">ADD TO CART</button>
+            <button class="btn-sm" onclick="addToCart('Prebuilt PC GXL DX', 1489, '../assets/images/prebuiltpc3.png', this)">ADD TO CART</button>
           </div>
         </div>
       </div>
@@ -236,7 +236,7 @@
         <span>PRO GRADE ESPORTS READY</span>
         <h1>Performance Gaming PCs</h1>
         <p>Deals on custom and prebuilt systems</p>
-        <a href="gear.html" class="btn">ADD TO CART</a>
+        <a href="prebuilt.html" class="btn">SHOP NOW</a>
       </div>
       <div class="promo-hero-img">
         <img src="../assets/images/PC GAMING.png" alt="PC">
@@ -280,7 +280,7 @@
       </p>
 
       <div class="feature-actions">
-        <button class="btn-cyan">ADD TO CART</button>
+        <button class="btn-cyan" onclick="window.location.href='gear.html'">SHOP NOW</button>
       </div>
     </div>
     </div>
@@ -307,7 +307,7 @@
 
         <div class="alt-meta">
           <div class="alt-price">650$ <span>136</span></div>
-          <button class="alt-btn">ADD TO CART</button>
+          <button class="alt-btn" onclick="addToCart('Ozeino Wireless Gaming Headset', 650, '../assets/images/headset1.png', this)">ADD TO CART</button>
         </div>
       </div>
     </div>
@@ -322,7 +322,7 @@
         <!-- LEFT SIDE (PRICE + BTN) -->
         <div class="alt-left">
           <div class="alt-price">800$ <span>136</span></div>
-          <button class="alt-btn">ADD TO CART</button>
+          <button class="alt-btn" onclick="addToCart('Razer BlackShark V2 X Gaming Headset', 800, '../assets/images/headset2.png', this)">ADD TO CART</button>
         </div>
 
         <!-- RIGHT SIDE (DESC) -->
@@ -351,7 +351,7 @@
 
         <div class="alt-meta">
           <div class="alt-price">480$ <span>136</span></div>
-          <button class="alt-btn">ADD TO CART</button>
+          <button class="alt-btn" onclick="addToCart('ASTRO Gaming A20 Wireless Headset Gen 2', 480, '../assets/images/headset3.png', this)">ADD TO CART</button>
         </div>
       </div>
     </div>
@@ -428,6 +428,7 @@
 </section>
 
 <script src="../components/footer.js"></script>
+<script src="../js/cart.js"></script>
 
 </body>
 </html>
