@@ -10,3 +10,4 @@
   from = "/index.html"
   to = "/src/pages/Main.html"
   status = 302
+zoom
