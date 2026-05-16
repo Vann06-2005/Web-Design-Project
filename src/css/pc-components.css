@@ -99,6 +99,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  min-width: 0;
 }
 
 .pc-card::before {
@@ -186,13 +187,14 @@
 
 /* Shop button */
 .btn-shop {
-  display: block;
-  width: 100%;
-  font-size: 16px;
+  display: flex;
+  /* width: 90px; */
+  font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 10px 0;
   border-radius: 10px;
+  justify-content: center;
 }
 
 /* === RESPONSIVE === */
@@ -203,7 +205,7 @@
 
 @media (max-width: 900px) {
   .pc-wrapper { margin-top: 20px; }
-  .pc-grid { grid-template-columns: repeat(2, 1fr); }
+  .pc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 768px) {
@@ -225,5 +227,5 @@
 }
 
 @media (max-width: 480px) {
-  .pc-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .pc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 }

@@ -1,7 +1,7 @@
 /* === PAGE-SPECIFIC VARIABLES === */
 :root {
-  --dark2:      #0A1622;
-  --filter-bg:  #0D1520;
+  --dark2: #0a1622;
+  --filter-bg: #0d1520;
 }
 
 /* === PAGE WRAPPER === */
@@ -13,15 +13,17 @@
 }
 
 /* === BREADCRUMB === */
-.breadcrumb { margin-bottom: 16px; }
+.breadcrumb {
+  margin-bottom: 16px;
+}
 
 /* === PAGE DESCRIPTION === */
 .page-desc {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 16px 0;
   margin-bottom: 32px;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 16px;
   font-weight: 500;
   color: var(--gray-400);
@@ -30,7 +32,7 @@
 
 /* === SECTION HEADING === */
 .section-heading {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 26px;
   font-weight: 700;
   color: var(--white);
@@ -60,9 +62,11 @@
 }
 
 .featured-card::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--cyan), var(--cyan2));
   border-radius: 16px 16px 0 0;
@@ -73,10 +77,12 @@
 .featured-card:hover {
   border-color: var(--cyan);
   transform: translateY(-5px);
-  box-shadow: 0 14px 32px rgba(0,240,255,0.18);
+  box-shadow: 0 14px 32px rgba(0, 240, 255, 0.18);
 }
 
-.featured-card:hover::before { opacity: 1; }
+.featured-card:hover::before {
+  opacity: 1;
+}
 
 .featured-card-img {
   width: 100%;
@@ -97,10 +103,12 @@
   transition: transform 0.3s;
 }
 
-.featured-card:hover .featured-card-img img { transform: scale(1.05); }
+.featured-card:hover .featured-card-img img {
+  transform: scale(1.05);
+}
 
 .featured-card-name {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 16px;
   font-weight: 700;
   color: #111;
@@ -108,7 +116,7 @@
 }
 
 .featured-card-specs {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 12px;
   font-weight: 500;
   color: #555;
@@ -124,10 +132,14 @@
   margin-bottom: 12px;
 }
 
-.stars { color: var(--star); font-size: 13px; letter-spacing: 1px; }
+.stars {
+  color: var(--star);
+  font-size: 13px;
+  letter-spacing: 1px;
+}
 
 .review-count {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 12px;
   color: #888;
 }
@@ -139,14 +151,14 @@
 }
 
 .badge {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 11px;
   font-weight: 700;
   padding: 3px 8px;
   border-radius: 4px;
-  background: rgba(0,240,255,0.12);
+  background: rgba(0, 240, 255, 0.12);
   color: var(--cyan2);
-  border: 1px solid rgba(0,240,255,0.2);
+  border: 1px solid rgba(0, 240, 255, 0.2);
 }
 
 .featured-card-bottom {
@@ -158,19 +170,24 @@
 }
 
 .card-price {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 20px;
   font-weight: 700;
   color: var(--cyan2);
 }
 
-.card-price span { font-size: 14px; }
+.card-price span {
+  font-size: 14px;
+}
 
 .btn-shop {
-  font-size: 15px;
-  letter-spacing: 0.08em;
-  padding: 9px 28px;
+  font-size: 10px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
   border-radius: 8px;
+  /* text-align: center; */
 }
 
 /* Deal badge overlay */
@@ -180,7 +197,7 @@
   left: 14px;
   background: var(--cyan);
   color: #000;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -193,7 +210,7 @@
 /* === FILTER BAR === */
 .filter-bar {
   background: var(--filter-bg);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: 14px 20px;
   display: flex;
@@ -204,7 +221,7 @@
 }
 
 .filter-label {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 14px;
   font-weight: 700;
   color: var(--white);
@@ -215,10 +232,10 @@
 }
 
 .filter-select {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--text);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 13px;
   font-weight: 600;
   padding: 7px 12px;
@@ -234,17 +251,21 @@
   padding-right: 30px;
 }
 
-.filter-select:hover, .filter-select:focus {
+.filter-select:hover,
+.filter-select:focus {
   border-color: var(--cyan);
   color: var(--white);
 }
 
-.filter-select option { background: #0D1520; color: var(--white); }
+.filter-select option {
+  background: #0d1520;
+  color: var(--white);
+}
 
 .filter-divider {
   width: 1px;
   height: 24px;
-  background: rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.12);
   margin: 0 4px;
 }
 
@@ -256,7 +277,7 @@
 }
 
 .sort-label {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: var(--gray-400);
@@ -267,7 +288,7 @@
   background: none;
   border: none;
   color: var(--cyan);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
@@ -276,7 +297,9 @@
   padding: 4px 0;
 }
 
-.btn-clear:hover { opacity: 0.7; }
+.btn-clear:hover {
+  opacity: 0.7;
+}
 
 /* === PRODUCT GRID (4 cols) === */
 .product-grid {
@@ -300,9 +323,11 @@
 }
 
 .product-card::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--cyan), var(--cyan2));
   border-radius: 16px 16px 0 0;
@@ -313,10 +338,12 @@
 .product-card:hover {
   border-color: var(--cyan);
   transform: translateY(-5px);
-  box-shadow: 0 14px 32px rgba(0,240,255,0.18);
+  box-shadow: 0 14px 32px rgba(0, 240, 255, 0.18);
 }
 
-.product-card:hover::before { opacity: 1; }
+.product-card:hover::before {
+  opacity: 1;
+}
 
 .product-card-img {
   width: 100%;
@@ -337,7 +364,9 @@
   transition: transform 0.3s;
 }
 
-.product-card:hover .product-card-img img { transform: scale(1.06); }
+.product-card:hover .product-card-img img {
+  transform: scale(1.06);
+}
 
 .product-card-sep {
   height: 1px;
@@ -346,7 +375,7 @@
 }
 
 .product-card-name {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 13px;
   font-weight: 700;
   color: #111;
@@ -354,7 +383,7 @@
 }
 
 .product-card-specs {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 11.5px;
   font-weight: 500;
   color: #555;
@@ -380,7 +409,7 @@
 }
 
 .product-price {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 16px;
   font-weight: 700;
   color: var(--cyan2);
@@ -391,20 +420,20 @@
   grid-column: 1 / -1;
   text-align: center;
   padding: 48px 0;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 18px;
   color: var(--gray-500);
 }
 
 /* === BRAND LOGOS === */
 .brand-section {
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 32px;
   text-align: center;
 }
 
 .brand-section p {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: var(--gray-500);
@@ -422,7 +451,7 @@
 }
 
 .brand-logo {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 20px;
   font-weight: 700;
   color: var(--gray-400);
@@ -431,50 +460,116 @@
   cursor: default;
 }
 
-.brand-logo:hover { color: var(--cyan); }
+.brand-logo:hover {
+  color: var(--cyan);
+}
 
 /* === RESPONSIVE === */
 @media (max-width: 1100px) {
-  .prebuilt-wrapper { margin-top: 20px; }
-  .product-grid { grid-template-columns: repeat(3, 1fr); }
-  .featured-grid { grid-template-columns: repeat(3, 1fr); }
+  .prebuilt-wrapper {
+    margin-top: 20px;
+  }
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .featured-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 900px) {
-  .prebuilt-wrapper { margin-top: 20px; }
-  .product-grid { grid-template-columns: repeat(2, 1fr); }
-  .featured-grid { grid-template-columns: repeat(2, 1fr); }
+  .prebuilt-wrapper {
+    margin-top: 20px;
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
-  .prebuilt-wrapper { margin-top: 10px; padding: 16px 20px 32px; overflow-x: hidden; }
-  .filter-bar { gap: 8px; padding: 12px 14px; }
-  .filter-sort-wrap { margin-left: 0; width: 100%; justify-content: flex-start; flex-wrap: wrap; }
+  .prebuilt-wrapper {
+    margin-top: 10px;
+    padding: 16px 20px 32px;
+    overflow-x: hidden;
+  }
+  .filter-bar {
+    gap: 8px;
+    padding: 12px 14px;
+  }
+  .filter-sort-wrap {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
   /* Keep 2-col featured and tighten card padding */
-  .featured-card { padding: 14px; }
-  .featured-card-img { aspect-ratio: 16 / 9; }
-  .product-card { padding: 12px; }
+  .featured-card {
+    padding: 14px;
+  }
+  .featured-card-img {
+    aspect-ratio: 16 / 9;
+  }
+  .product-card {
+    padding: 12px;
+  }
 }
 
 @media (max-width: 540px) {
-  .prebuilt-wrapper { padding: 12px 14px 28px; }
-  .featured-grid { grid-template-columns: 1fr; gap: 14px; }
-  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .prebuilt-wrapper {
+    padding: 12px 14px 28px;
+  }
+  .featured-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
   /* Cap image heights so they don't fill the screen */
-  .featured-card-img { aspect-ratio: 16 / 9; max-height: 200px; }
-  .product-card-img { aspect-ratio: 4 / 3; max-height: 140px; }
-  .featured-card { padding: 12px; }
-  .product-card { padding: 10px; }
-  .section-heading { font-size: 22px; }
-  .brand-logos { gap: 20px; }
-  .brand-logo { font-size: 16px; }
+  .featured-card-img {
+    aspect-ratio: 16 / 9;
+    max-height: 200px;
+  }
+  .product-card-img {
+    aspect-ratio: 4 / 3;
+    max-height: 140px;
+  }
+  .featured-card {
+    padding: 12px;
+  }
+  .product-card {
+    padding: 10px;
+  }
+  .section-heading {
+    font-size: 22px;
+  }
+  .brand-logos {
+    gap: 20px;
+  }
+  .brand-logo {
+    font-size: 16px;
+  }
   /* Tighten text */
-  .featured-card-name { font-size: 14px; }
-  .featured-card-specs { font-size: 11px; }
-  .card-price { font-size: 17px; }
+  .featured-card-name {
+    font-size: 14px;
+  }
+  .featured-card-specs {
+    font-size: 11px;
+  }
+  .card-price {
+    font-size: 17px;
+  }
 }
 
 @media (max-width: 380px) {
-  .product-grid { grid-template-columns: 1fr; }
-  .product-card-img { max-height: 180px; }
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  .product-card-img {
+    max-height: 180px;
+  }
 }
